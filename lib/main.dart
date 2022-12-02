@@ -4,7 +4,7 @@ import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/signup.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: LoginSignup()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: Land()));
 }
 
 class LoginSignup extends StatefulWidget {
@@ -12,6 +12,34 @@ class LoginSignup extends StatefulWidget {
 
   @override
   State<LoginSignup> createState() => _LoginSignupState();
+}
+
+class Land extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xff77AAD4),
+      body: Center(
+        child: IconButton(
+          iconSize: 200,
+          icon: Image.asset('images/logo-blue.png'),
+          onPressed: () {
+            Navigator.of(context).push(_createRoute());
+          },
+        ),
+      ),
+    );
+  }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const LoginSignup(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return child;
+    },
+  );
 }
 
 class _LoginSignupState extends State<LoginSignup> {

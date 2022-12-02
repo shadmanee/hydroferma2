@@ -18,24 +18,16 @@ class _LogInState extends State<LogIn> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
-                ),
                 Container(
-                    margin: EdgeInsets.only(left: 5, top: 10),
+                    margin: EdgeInsets.only(top: 20, left: 3),
                     child: IconButton(
-                        iconSize: 50,
+                        iconSize: 20,
                         icon: const Icon(
                           Icons.arrow_back_ios,
                         ),
                         onPressed: () {
                           Navigator.pop(context);
                         })),
-                Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
-                ),
                 Expanded(
                   child: Container(
                       width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
@@ -46,30 +38,27 @@ class _LogInState extends State<LogIn> {
               children: <Widget>[
                 Expanded(
                     child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 90))),
+                        height: 100, margin: EdgeInsets.only(top: 20))),
                 Container(
                   height: 100,
                   width: 100,
-                  margin: EdgeInsets.only(bottom: 45, top: 90),
+                  margin: EdgeInsets.only(top: 20),
                   child: Image.asset('images/logo-green.png'),
                 ),
                 Expanded(
                     child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 90)))
+                        height: 100, margin: EdgeInsets.only(top: 90)))
               ],
             ),
             Row(
               children: <Widget>[
                 Expanded(
                     child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 5))),
+                        height: 100, margin: EdgeInsets.only(top: 5))),
                 Container(
-                    height: 300,
+                    height: 200,
                     width: 250,
-                    margin: EdgeInsets.only(bottom: 45, top: 5),
+                    margin: EdgeInsets.only(top: 5),
                     child: ListView(
                       children: <Widget>[
                         Form(

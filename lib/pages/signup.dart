@@ -18,14 +18,10 @@ class _SignUpState extends State<SignUp> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
-                ),
                 Container(
-                    margin: EdgeInsets.only(left: 5, top: 10),
+                    margin: EdgeInsets.only(top: 20, left: 3),
                     child: IconButton(
-                        iconSize: 50,
+                        iconSize: 20,
                         icon: const Icon(
                           Icons.arrow_back_ios,
                         ),
@@ -33,12 +29,7 @@ class _SignUpState extends State<SignUp> {
                           Navigator.pop(context);
                         })),
                 Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
-                ),
-                Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
+                  child: Container(),
                 )
               ],
             ),
@@ -46,18 +37,16 @@ class _SignUpState extends State<SignUp> {
               children: <Widget>[
                 Expanded(
                     child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 90))),
+                        height: 100, margin: EdgeInsets.only(top: 20))),
                 Container(
                   height: 100,
                   width: 100,
-                  margin: EdgeInsets.only(bottom: 45, top: 90),
+                  margin: EdgeInsets.only(top: 20),
                   child: Image.asset('images/logo-green.png'),
                 ),
                 Expanded(
                     child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 90)))
+                        height: 100, margin: EdgeInsets.only(top: 20)))
               ],
             ),
             Row(
@@ -66,16 +55,6 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                         height: 100,
                         margin: EdgeInsets.only(bottom: 50, top: 5))),
-                // Padding(
-                //   padding: EdgeInsets.all(15),
-                //   child: TextField(
-                //     decoration: InputDecoration(
-                //       border: OutlineInputBorder(),
-                //       labelText: 'User Name',
-                //       hintText: 'Enter Your Name',
-                //     ),
-                //   ),
-                // )
                 Container(
                     height: 300,
                     width: 250,
@@ -105,7 +84,7 @@ class _SignUpState extends State<SignUp> {
                               ),
                               Container(
                                 height: 40,
-                                width: 100,
+                                width: 120,
                                 margin: EdgeInsets.only(top: 10),
                                 child: RaisedButton(
                                   child: Text('Sign Up',
@@ -128,16 +107,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         )
                       ],
-                    )
-                    // TextField(
-                    //   decoration: InputDecoration(
-                    //       filled: true,
-                    //       fillColor: Color(0xffEAEAEA),
-                    //       border: OutlineInputBorder(),
-                    //       labelText: 'Enter Name',
-                    //       hintText: 'Enter Your Name'),
-                    // ),
-                    ),
+                    )),
                 Expanded(
                     child: Container(
                         height: 100,

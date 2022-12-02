@@ -4,7 +4,7 @@ import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/signup.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: DashBoard()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: LoginSignup()));
 }
 
 class LoginSignup extends StatefulWidget {

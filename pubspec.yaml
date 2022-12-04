@@ -64,6 +64,11 @@ flutter:
     - images/logo-green.png
     - images/noti.png
     - images/user.png
+    - images/bluetooth1.png
+    - images/bluetooth2.png
+    - images/noti-blue.png
+    - images/lifecycle1.png
+    - images/loading.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

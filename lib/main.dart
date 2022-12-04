@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/signup.dart';
+import 'package:hydroferma2/pages/notification.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: Land()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: lifecycle1()));
 }
 
 class LoginSignup extends StatefulWidget {

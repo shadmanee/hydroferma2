@@ -875,7 +875,7 @@ class _lifecycle4State extends State<lifecycle4> {
                                     padding: const EdgeInsets.only(
                                         top: 5, left: 16, right: 16, bottom: 5),
                                     child: Text(
-                                      'Ready to harvest yeee!',
+                                      'Ready to harvest!',
                                       style: TextStyle(
                                           color: Colors.black.withOpacity(0.6), fontSize: 20),
                                     ),

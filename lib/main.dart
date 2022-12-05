@@ -8,7 +8,7 @@ import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: LoginSignup()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: lifecycle4()));
 }
 
 class LoginSignup extends StatefulWidget {

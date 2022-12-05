@@ -392,7 +392,7 @@ class _lifecycle2State extends State<lifecycle2> {
           Container(
             child: Center(
               child: Text(
-                "Processing",
+                "Processing...",
                 style: TextStyle(fontSize: 30),
                 textAlign: TextAlign.center,
               ),
@@ -588,9 +588,25 @@ class _lifecycle3State extends State<lifecycle3> {
           ]),
           Container(
             child: Center(
+              child: IconButton(
+                iconSize: 250,
+                icon: Image.asset('images/done.png'),
+                onPressed: () {
+                  Navigator.of(context).push(_createRoute());
+                },
+              ),
+            ),
+          ),
+          Row(children: <Widget>[
+            Container(
+              height: 80,
+            )
+          ]),
+          Container(
+            child: Center(
               child: Text(
-                "done",
-                style: TextStyle(fontSize: 30),
+                "Processing done!",
+                style: TextStyle(fontSize: 35),
                 textAlign: TextAlign.center,
               ),
             ),

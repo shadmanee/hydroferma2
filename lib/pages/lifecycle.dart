@@ -150,50 +150,64 @@ class _lifecycle1 extends State<lifecycle1> {
             ),
           ),
         ),
-        body: Column(children: <Widget>[
-          Row(children: <Widget>[
-            Container(
-              height: 20,
-            )
-          ]),
-          Container(
-              // child: OptionsBar.options(),
+        body: Container(
+            padding: EdgeInsets.only(top: 20),
+            child: Stack(children: [
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      iconSize: 40,
+                      icon: Image.asset('images/logo-white.png'),
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 160),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/noti.png'),
+                      onPressed: () {
+                        // Route route =
+                        //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
+                        // Navigator.push(context, route);
+                      },
+                    ),
+                  ),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/user.png'),
+                      onPressed: () {},
+                    ),
+                  )
+                ],
               ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            height: 30,
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 30,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: IconButton(
-                iconSize: 250,
-                icon: Image.asset('images/lifecycle1.png'),
-                onPressed: () {
-                  Navigator.of(context).push(_createRoute());
-                },
-              ),
-            ),
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 80,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: Text(
-                "Upload photo",
-                style: TextStyle(fontSize: 40),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ]));
+              Container(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: <Widget>[
+                    Container(
+                      child: Center(
+                        child: IconButton(
+                          iconSize: 250,
+                          icon: Image.asset('images/lifecycle1.png'),
+                          onPressed: () {
+                            Navigator.of(context).push(_createRoute());
+                          },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Center(
+                        child: Text(
+                          "Upload photo",
+                          style: TextStyle(fontSize: 40),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )
+                  ])),
+            ])));
   }
 }
 
@@ -355,54 +369,68 @@ class _lifecycle2State extends State<lifecycle2> {
             ),
           ),
         ),
-        body: Column(children: <Widget>[
-          Row(children: <Widget>[
-            Container(
-              height: 20,
-            )
-          ]),
-          Container(
-              // child: OptionsBar.options(),
+        body: Container(
+            padding: EdgeInsets.only(top: 20),
+            child: Stack(children: [
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      iconSize: 40,
+                      icon: Image.asset('images/logo-white.png'),
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 160),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/noti.png'),
+                      onPressed: () {
+                        // Route route =
+                        //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
+                        // Navigator.push(context, route);
+                      },
+                    ),
+                  ),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/user.png'),
+                      onPressed: () {},
+                    ),
+                  )
+                ],
               ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            height: 30,
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 30,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: IconButton(
-                iconSize: 300,
-                icon: Image.asset('images/loading.png'),
-                onPressed: () {
-                  Navigator.of(context).push(_createback());
-                },
-              ),
-            ),
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 80,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: Text(
-                "Processing...",
-                style: TextStyle(fontSize: 30),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ]));
+              Container(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: <Widget>[
+                    Container(
+                      child: Center(
+                        child: IconButton(
+                          iconSize: 300,
+                          icon: Image.asset('images/loading.png'),
+                          onPressed: () {
+                            Navigator.of(context).push(_createforth());
+                          },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Center(
+                        child: Text(
+                          "Processing...",
+                          style: TextStyle(fontSize: 30),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )
+                  ])),
+            ])));
   }
 }
 
-Route _createback() {
+Route _createforth() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const lifecycle3(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -560,57 +588,72 @@ class _lifecycle3State extends State<lifecycle3> {
             ),
           ),
         ),
-        body: Column(children: <Widget>[
-          Row(children: <Widget>[
-            Container(
-              height: 20,
-            )
-          ]),
-          Container(
-              // child: OptionsBar.options(),
+        body: Container(
+            padding: EdgeInsets.only(top: 20),
+            child: Stack(children: [
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      iconSize: 40,
+                      icon: Image.asset('images/logo-white.png'),
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                    ),
+                  ),
+                  SizedBox(width: 160),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/noti.png'),
+                      onPressed: () {
+                        // Route route =
+                        //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
+                        // Navigator.push(context, route);
+                      },
+                    ),
+                  ),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/user.png'),
+                      onPressed: () {},
+                    ),
+                  )
+                ],
               ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            height: 30,
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 30,
-            )
-          ]),
-          Container(
-            child: Center(),
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 80,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: IconButton(
-                iconSize: 250,
-                icon: Image.asset('images/done.png'),
-                onPressed: () {
-                  Navigator.of(context).push(_createRoute());
-                },
-              ),
-            ),
-          ),
-          Row(children: <Widget>[
-            Container(
-              height: 80,
-            )
-          ]),
-          Container(
-            child: Center(
-              child: Text(
-                "Processing done!",
-                style: TextStyle(fontSize: 35),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
-        ]));
+              Container(
+                  padding: EdgeInsets.only(top: 100),
+                  child: Column(children: <Widget>[
+                    Container(
+                      child: Center(
+                        child: IconButton(
+                          iconSize: 250,
+                          icon: Image.asset('images/done.png'),
+                          onPressed: () {
+                            Navigator.of(context).push(_createback());
+                          },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Center(
+                        child: Text(
+                          "Processing done!",
+                          style: TextStyle(fontSize: 35),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )
+                  ])),
+            ])));
   }
+}
+
+Route _createback() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const lifecycle1(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return child;
+    },
+  );
 }

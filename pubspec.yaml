@@ -70,6 +70,23 @@ flutter:
     - images/loading.png
     - images/done.png
     - images/lifestage.png
+    - images/user-blue.png
+    - images/addphoto.png
+    - images/addphoto2.png
+    - images/user2.png
+    - images/placeholder.png
+    - images/padlock.png
+    - images/smartphone.png
+    - images/logout.png
+    - images/poweroff.png
+    - images/eye.png
+    - images/gallery.png
+    - images/camera.png
+    - images/hide.png
+    - images/trash.png
+    - images/catto.png
+    - images/yes.png
+    - images/no.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

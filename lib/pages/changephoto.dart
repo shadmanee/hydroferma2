@@ -1,9 +1,12 @@
-import 'dart:html';
-import 'dart:js';
+// import 'dart:html';
+// import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
 
 class changephoto extends StatefulWidget {
   const changephoto({Key? key}) : super(key: key);
@@ -22,8 +25,8 @@ class _changephoto extends State<changephoto> {
         width: 250,
         child: Drawer(
           backgroundColor: Color(0xff89B6DC),
-          child: Column(
-            //padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+          child: ListView(
+            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
             children: [
               Container(
                 alignment: Alignment(1, -1),
@@ -51,7 +54,11 @@ class _changephoto extends State<changephoto> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -99,7 +106,11 @@ class _changephoto extends State<changephoto> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -115,7 +126,11 @@ class _changephoto extends State<changephoto> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -182,7 +197,6 @@ class _changephoto extends State<changephoto> {
                 ),
                 Container(
                   child: IconButton(
-                    
                     icon: Image.asset('images/user-blue.png'),
                     onPressed: () {},
                   ),
@@ -193,201 +207,183 @@ class _changephoto extends State<changephoto> {
               margin: EdgeInsets.fromLTRB(15, 60, 15, 15),
               child: Column(
                 children: <Widget>[
-                  
                   //function
 
-                 Container(
-    padding: EdgeInsets.only(left: 1, right: 1),
-    child: Card(
-                        color: Color(0xffC9F3E9),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                        clipBehavior: Clip.antiAlias,
-                        child: Column(
-                          children: [  
-                            Container(
-                              height: 600,
-                              width: 500,
-                              margin: EdgeInsets.only(top:2),
-                              color: Color(0xffC9F3E9),
-                              child: Column(
-                                
-                                children: [
-                                  
-                                  Padding(
-                                    
-                                    padding: const EdgeInsets.only(
-                                        
-                                        top: 10, left: 10, right: 10, bottom: 30),
-                                   child: IconButton(
-                                      iconSize: 150,
-                                      icon: Image.asset('images/addphoto2.png'),
-                                      onPressed: () {
-                                        //Navigator.of(context).push(_createnext());
-                                      },
-                                    ),
+                  Container(
+                    padding: EdgeInsets.only(left: 1, right: 1),
+                    child: Card(
+                      color: Color(0xffC9F3E9),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 600,
+                            width: 500,
+                            margin: EdgeInsets.only(top: 2),
+                            color: Color(0xffC9F3E9),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 10, left: 10, right: 10, bottom: 30),
+                                  child: IconButton(
+                                    iconSize: 150,
+                                    icon: Image.asset('images/addphoto2.png'),
+                                    onPressed: () {
+                                      //Navigator.of(context).push(_createnext());
+                                    },
                                   ),
-                                  ///username and all
-                                  Padding(
+                                ),
+
+                                ///username and all
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 5, left: 7, right: 7, bottom: 1),
                                     child: Container(
                                       width: 1200,
-                                      height:80,
+                                      height: 80,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/eye.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Open',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon:
+                                                  Image.asset('images/eye.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Open',
+                                                style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 0, left: 7, right: 7, bottom: 1),
                                     child: Container(
                                       width: 1200,
-                                      height:80,
+                                      height: 80,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/camera.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Camera',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/camera.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Camera',
+                                                style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 0, left: 7, right: 7, bottom: 1),
                                     child: Container(
                                       width: 1200,
-                                      height:80,
+                                      height: 80,
                                       color: Color(0xff9AE7C9),
-                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/gallery.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Gallery',
-                                                    style: TextStyle(
+                                      child: FlatButton(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/gallery.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Gallery',
+                                                style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                      
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 0, left: 7, right: 7, bottom: 5),
                                     child: Container(
-                                      
                                       width: 1200,
-                                      height:80,
+                                      height: 80,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              
-                                              child: Row(
-                                                children: [
-                                                 
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/trash.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Delete',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/trash.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Delete',
+                                                style: TextStyle(
                                                     fontSize: 20,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.red)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                              Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 10, left: 7, right: 7, bottom: 2),
                                     child: Container(
-                                      
                                       child: Container(
-                                              margin: EdgeInsets.only(left: 50,right: 10),
-                                              padding: EdgeInsets.only(left: 50,right: 10),
-                                              child: Row(
-                                                
-                                                children: [
-                                                  
-                                                  
-                                                  Expanded(child: Container(),),
-                                                  IconButton(
-                                                      iconSize: 30,
-                                                      icon: Image.asset('images/no.png'),
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(_createlogout());
-                                                      },
-                                                  ),
-                                                ],
-                                              ),
-                                              
+                                        margin: EdgeInsets.only(
+                                            left: 50, right: 10),
+                                        padding: EdgeInsets.only(
+                                            left: 50, right: 10),
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Container(),
                                             ),
-                                    
-                                    )
-                                  ),
-                                  
-                          ], ),
-                      ),],
-                      
-                      
+                                            IconButton(
+                                              iconSize: 30,
+                                              icon:
+                                                  Image.asset('images/no.png'),
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .push(_createlogout());
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-    ),
-  ),
-
-
-
-
+                    ),
+                  ),
                 ],
               ),
               decoration: BoxDecoration(
@@ -401,10 +397,10 @@ class _changephoto extends State<changephoto> {
   }
 }
 
-
 Route _createlogout() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const UserAccount(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const UserAccount(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return child;
     },

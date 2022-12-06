@@ -7,12 +7,14 @@ import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/signup.dart';
 import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
+import 'package:hydroferma2/pages/waterdata.dart';
+import 'package:hydroferma2/pages/waterdevices.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
 
-
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: UserAccount()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: Land()));
 }
 
 class LoginSignup extends StatefulWidget {

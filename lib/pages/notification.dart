@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hydroferma2/pages/Useraccount.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -46,7 +50,11 @@ class _Notifications extends State<Notifications> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -94,7 +102,11 @@ class _Notifications extends State<Notifications> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -110,7 +122,11 @@ class _Notifications extends State<Notifications> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -169,9 +185,7 @@ class _Notifications extends State<Notifications> {
                   child: IconButton(
                     icon: Image.asset('images/noti-blue.png'),
                     onPressed: () {
-                      // Route route =
-                      //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                      // Navigator.push(context, route);
+                      Navigator.pop(context);
                     },
                   ),
                 ),

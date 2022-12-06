@@ -1,9 +1,12 @@
-import 'dart:html';
-import 'dart:js';
+// import 'dart:html';
+// import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfile extends State<EditProfile> {
-   var formKey = GlobalKey<FormState>();
+  var formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -23,8 +26,8 @@ class _EditProfile extends State<EditProfile> {
         width: 250,
         child: Drawer(
           backgroundColor: Color(0xff89B6DC),
-          child: Column(
-            //padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+          child: ListView(
+            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
             children: [
               Container(
                 alignment: Alignment(1, -1),
@@ -52,7 +55,11 @@ class _EditProfile extends State<EditProfile> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -100,7 +107,11 @@ class _EditProfile extends State<EditProfile> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -116,7 +127,11 @@ class _EditProfile extends State<EditProfile> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -183,7 +198,6 @@ class _EditProfile extends State<EditProfile> {
                 ),
                 Container(
                   child: IconButton(
-                    
                     icon: Image.asset('images/user-blue.png'),
                     onPressed: () {},
                   ),
@@ -196,8 +210,9 @@ class _EditProfile extends State<EditProfile> {
                 //color: Color(0xffC9F3E9),
                 Expanded(
                     child: Container(
-                       //color: Color(0xffC9F3E9),
-                        height: 100, margin: EdgeInsets.only(top: 80))),
+                        //color: Color(0xffC9F3E9),
+                        height: 100,
+                        margin: EdgeInsets.only(top: 80))),
                 Container(
                   height: 100,
                   width: 100,
@@ -207,8 +222,9 @@ class _EditProfile extends State<EditProfile> {
                 ),
                 Expanded(
                     child: Container(
-                      //color: Color(0xffC9F3E9),
-                        height: 100, margin: EdgeInsets.only(top: 80)))
+                        //color: Color(0xffC9F3E9),
+                        height: 100,
+                        margin: EdgeInsets.only(top: 80)))
               ],
             ),
             //form
@@ -225,7 +241,8 @@ class _EditProfile extends State<EditProfile> {
                     color: Color(0xff92D8BD),
                     //BorderRadius.all(Radius.circular(6.0)), color: Color(0xff88E2BF),
                     margin: EdgeInsets.only(bottom: 45, top: 200),
-                    padding: EdgeInsets.only(bottom: 10, top: 20,left: 20,right: 20),
+                    padding: EdgeInsets.only(
+                        bottom: 10, top: 20, left: 20, right: 20),
                     child: Column(
                       children: <Widget>[
                         Form(
@@ -279,8 +296,8 @@ class _EditProfile extends State<EditProfile> {
                               ),
                               Container(
                                 child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Location'),
+                                  decoration:
+                                      InputDecoration(labelText: 'Location'),
                                   validator: (value) {
                                     // if(value.length==0) return ('Email or Phone');
                                   },
@@ -291,31 +308,26 @@ class _EditProfile extends State<EditProfile> {
                                 width: 120,
                                 margin: EdgeInsets.only(top: 20),
                                 child: Container(
-                                  child:
-                                  Row(
-                                                
-                                                children: [
-                                                  
-                                                  IconButton(
-                                                    
-                                                      
-                                                      iconSize: 28,
-                                                      icon: Image.asset('images/no.png'),
-                                                      onPressed: () {
-                                                        
-                                                        Navigator.of(context).push(_createlogout());
-                                                      },
-                                                  ),
-                                                  
-                                                  IconButton(
-                                                      iconSize: 28,
-                                                      icon: Image.asset('images/yes.png'),
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(_createlogout());
-                                                      },
-                                                  ),
-                                                ],
-                                              ),
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: 28,
+                                        icon: Image.asset('images/no.png'),
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .push(_createlogout());
+                                        },
+                                      ),
+                                      IconButton(
+                                        iconSize: 28,
+                                        icon: Image.asset('images/yes.png'),
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .push(_createlogout());
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               )
                             ],
@@ -329,11 +341,6 @@ class _EditProfile extends State<EditProfile> {
                         margin: EdgeInsets.only(bottom: 5, top: 5)))
               ],
             ),
-
-
-
-           
-        
           ],
         ),
       ),
@@ -341,10 +348,10 @@ class _EditProfile extends State<EditProfile> {
   }
 }
 
-
 Route _createlogout() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const UserAccount(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const UserAccount(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return child;
     },

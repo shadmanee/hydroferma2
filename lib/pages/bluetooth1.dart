@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
+
+import 'lifecycle.dart';
 
 class Bluetooth extends StatefulWidget {
   const Bluetooth({Key? key}) : super(key: key);
@@ -46,7 +49,11 @@ class _bluetooth extends State<Bluetooth> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -94,7 +101,11 @@ class _bluetooth extends State<Bluetooth> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -110,7 +121,11 @@ class _bluetooth extends State<Bluetooth> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),

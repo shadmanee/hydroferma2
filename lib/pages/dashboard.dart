@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hydroferma2/pages/Useraccount.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/notification.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -46,7 +51,11 @@ class _DashBoardState extends State<DashBoard> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -94,7 +103,11 @@ class _DashBoardState extends State<DashBoard> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -110,7 +123,11 @@ class _DashBoardState extends State<DashBoard> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -169,16 +186,20 @@ class _DashBoardState extends State<DashBoard> {
                   child: IconButton(
                     icon: Image.asset('images/noti.png'),
                     onPressed: () {
-                      // Route route =
-                      //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                      // Navigator.push(context, route);
+                      Route route = MaterialPageRoute(
+                          builder: (context) => Notifications());
+                      Navigator.push(context, route);
                     },
                   ),
                 ),
                 Container(
                   child: IconButton(
                     icon: Image.asset('images/user.png'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Route route = MaterialPageRoute(
+                          builder: (context) => UserAccount());
+                      Navigator.push(context, route);
+                    },
                   ),
                 )
               ],

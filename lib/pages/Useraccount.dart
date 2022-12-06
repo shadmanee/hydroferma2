@@ -1,10 +1,16 @@
-import 'dart:html';
-import 'dart:js';
+// import 'dart:html';
+// import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
+import 'package:hydroferma2/pages/notification.dart';
+import 'package:hydroferma2/pages/water&nutrient.dart';
+
+import 'bluetooth1.dart';
+
 class UserAccount extends StatefulWidget {
   const UserAccount({Key? key}) : super(key: key);
 
@@ -51,7 +57,11 @@ class _UserAccount extends State<UserAccount> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => WaterNutrient());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -99,7 +109,11 @@ class _UserAccount extends State<UserAccount> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => lifecycle1());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -115,7 +129,11 @@ class _UserAccount extends State<UserAccount> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Bluetooth());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
@@ -174,15 +192,14 @@ class _UserAccount extends State<UserAccount> {
                   child: IconButton(
                     icon: Image.asset('images/noti.png'),
                     onPressed: () {
-                      // Route route =
-                      //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                      // Navigator.push(context, route);
+                      Route route = MaterialPageRoute(
+                          builder: (context) => Notifications());
+                      Navigator.push(context, route);
                     },
                   ),
                 ),
                 Container(
                   child: IconButton(
-                    
                     icon: Image.asset('images/user-blue.png'),
                     onPressed: () {},
                   ),
@@ -193,235 +210,220 @@ class _UserAccount extends State<UserAccount> {
               margin: EdgeInsets.fromLTRB(15, 60, 15, 15),
               child: ListView(
                 children: <Widget>[
-                  
                   //function
 
-                 Container(
-    padding: EdgeInsets.only(left: 1, right: 1),
-    child: Card(
-                        color: Color(0xffC9F3E9),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                        clipBehavior: Clip.antiAlias,
-                        child: Column(
-                          children: [  
-                            Container(
-                              height: 640,
-                              width: 500,
-                              margin: EdgeInsets.only(top:2),
-                              color: Color(0xffC9F3E9),
-                              child: Column(
-                                children: [
-                            
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 10, left: 10, right: 10, bottom: 30),
-                                   child: IconButton(
-                                      iconSize: 150,
-                                      icon: Image.asset('images/addphoto.png'),
-                                      onPressed: () {
-                                        Navigator.of(context).push(_createchange());
-                                      },
-                                    ),
+                  Container(
+                    padding: EdgeInsets.only(left: 1, right: 1),
+                    child: Card(
+                      color: Color(0xffC9F3E9),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 500,
+                            width: 300,
+                            margin: EdgeInsets.only(top: 2),
+                            color: Color(0xffC9F3E9),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 10, left: 10, right: 10, bottom: 30),
+                                  child: IconButton(
+                                    iconSize: 150,
+                                    icon: Image.asset('images/addphoto.png'),
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .push(_createchange());
+                                    },
                                   ),
-                                  ///username and all
-                                  Padding(
+                                ),
+
+                                ///username and all
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 5, left: 7, right: 7, bottom: 1),
                                     child: Container(
-                                      width: 1200,
-                                      height:60,
+                                      width: 120,
+                                      height: 60,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/user2.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Sadia Tasneem Sara',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/user2.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Sadia Tasneem Sara',
+                                                style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 1, left: 7, right: 7, bottom: 1),
                                     child: Container(
-                                      width: 1200,
-                                      height:60,
+                                      width: 120,
+                                      height: 60,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/smartphone.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('01537599843',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/smartphone.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('01537599843',
+                                                style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 1, left: 7, right: 7, bottom: 1),
                                     child: Container(
-                                      width: 1200,
-                                      height:60,
+                                      width: 120,
+                                      height: 60,
                                       color: Color(0xff9AE7C9),
-                                       child: FlatButton(
-                                              child: Row(
-                                                children: [
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/padlock.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('**************',
-                                                    style: TextStyle(
+                                      child: FlatButton(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/padlock.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('**************',
+                                                style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                      
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 1, left: 7, right: 7, bottom: 5),
                                     child: Container(
-                                      
-                                      width: 1200,
-                                      height:60,
+                                      width: 120,
+                                      height: 60,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
-                                              
-                                              child: Row(
-                                                children: [
-                                                 
-                                                  IconButton(
-                                                      iconSize: 20,
-                                                      icon: Image.asset('images/placeholder.png'),
-                                                      onPressed: () {
-                                                        //Navigator.of(context).push(_createnext());
-                                                      },
-                                                  ),
-                                                  Text('Mirpur Cantonment, Dhaka',
-                                                    style: TextStyle(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 20,
+                                              icon: Image.asset(
+                                                  'images/placeholder.png'),
+                                              onPressed: () {
+                                                //Navigator.of(context).push(_createnext());
+                                              },
+                                            ),
+                                            Text('Mirpur Cantonment, Dhaka',
+                                                style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
-                                                ],
-                                              ),
-                                              onPressed: () {},
-                                            ),
-                                    
-                                    )
-                                  ),
-                                  Padding(
+                                          ],
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 10, left: 7, right: 7, bottom: 10),
                                     child: Container(
-                                        height: 40,
-                                        width: 150,
-                                        margin: EdgeInsets.only(top: 10),
-                                        child: RaisedButton(
-                                          child: Text('Edit Profile',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold)),
-                                          color: Color(0xff79C3FF),
-                                          elevation: 15,
-                                          
-                                          shape: RoundedRectangleBorder(
-                                              
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10.0))),
-                                                  
-                                          onPressed: () {
-                                             Route route = MaterialPageRoute(
-                                                 builder: (context) => EditProfile());
-                                             Navigator.push(context, route);
-                                          },
-                                        ),
-                                    )
-
-                                  ),
-                                  Padding(
+                                      height: 40,
+                                      width: 150,
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: RaisedButton(
+                                        child: Text('Edit Profile',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold)),
+                                        color: Color(0xff79C3FF),
+                                        elevation: 15,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10.0))),
+                                        onPressed: () {
+                                          Route route = MaterialPageRoute(
+                                              builder: (context) =>
+                                                  EditProfile());
+                                          Navigator.push(context, route);
+                                        },
+                                      ),
+                                    )),
+                                Padding(
                                     padding: const EdgeInsets.only(
                                         top: 10, left: 7, right: 7, bottom: 2),
                                     child: Container(
-                                      
                                       child: Container(
-                                              margin: EdgeInsets.only(left: 50,right: 50),
-                                              padding: EdgeInsets.only(left: 50,right: 50),
-                                              child: Row(
-                                                
-                                                children: [
-                                                  
-                                                  IconButton(
-                                                    
-                                                      
-                                                      iconSize: 70,
-                                                      icon: Image.asset('images/logout.png'),
-                                                      onPressed: () {
-                                                        
-                                                        Navigator.of(context).push(_createlogout());
-                                                      },
-                                                  ),
-                                                  Expanded(child: Container(),),
-                                                  IconButton(
-                                                      iconSize: 70,
-                                                      icon: Image.asset('images/poweroff.png'),
-                                                      onPressed: () {
-                                                        Navigator.of(context).push(_createlogout());
-                                                      },
-                                                  ),
-                                                ],
-                                              ),
-                                              
+                                        margin: EdgeInsets.only(
+                                            left: 50, right: 50),
+                                        padding: EdgeInsets.only(
+                                            left: 50, right: 50),
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              iconSize: 70,
+                                              icon: Image.asset(
+                                                  'images/logout.png'),
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .push(_createlogout());
+                                              },
                                             ),
-                                    
-                                    )
-                                  ),
-                                  
-
-
-                          ], ),
-                      ),],
-                      
-                      
+                                            Expanded(
+                                              child: Container(),
+                                            ),
+                                            IconButton(
+                                              iconSize: 70,
+                                              icon: Image.asset(
+                                                  'images/poweroff.png'),
+                                              onPressed: () {
+                                                Navigator.of(context)
+                                                    .push(_createlogout());
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-    ),
-  ),
-
+                    ),
+                  ),
                 ],
               ),
               decoration: BoxDecoration(
@@ -437,13 +439,13 @@ class _UserAccount extends State<UserAccount> {
 
 Route _createchange() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const changephoto(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const changephoto(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return child;
     },
   );
 }
-
 
 Route _createlogout() {
   return PageRouteBuilder(

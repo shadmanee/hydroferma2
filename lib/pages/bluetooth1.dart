@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
-
+import 'package:flutter/material.dart';
+import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/notification.dart';
+import 'package:hydroferma2/pages/waterdata.dart';
+import 'package:hydroferma2/pages/waterdevices.dart';
 import 'lifecycle.dart';
 
 class Bluetooth extends StatefulWidget {

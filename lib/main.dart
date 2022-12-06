@@ -14,7 +14,7 @@ import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: WaterDevices()));
+  runApp(MaterialApp(title: 'Hydroferma', home: Land()));
 }
 
 class LoginSignup extends StatefulWidget {
@@ -30,15 +30,17 @@ class Land extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff77AAD4),
       body: Center(
-        child: IconButton(
+        child: Column(children: <Widget>[
+          IconButton(
           iconSize: 200,
           icon: Image.asset('images/logo-blue.png'),
           onPressed: () {
             Navigator.of(context).push(_createRoute());
-          },
+          }), 
+          Text('Hydroferma', style: TextStyle(fontSize: 50,fontWeight: FontWeight.w900, color: Colors.white),)
+        ],),
         ),
-      ),
-    );
+      );
   }
 }
 

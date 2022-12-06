@@ -14,7 +14,7 @@ import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: Land()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: WaterDevices()));
 }
 
 class LoginSignup extends StatefulWidget {

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/waterdata.dart';
 import 'package:hydroferma2/pages/waterdevices.dart';
 
@@ -360,7 +361,11 @@ class WaterNutrient extends StatelessWidget {
                           )
                         ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Route route = MaterialPageRoute(
+                                        builder: (context) => Notifications());
+                                    Navigator.push(context, route);
+                      },
                     ),
                   ),
                   Divider(),

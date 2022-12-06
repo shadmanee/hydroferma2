@@ -895,6 +895,33 @@ class _lifecycle4State extends State<lifecycle4> {
                                       fontSize: 20),
                                 ),
                               ),
+                              Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 5, left: 7, right: 7, bottom: 6),
+                                    child: Container(
+                                      height: 33,
+                                      width: 110,
+                                      margin: EdgeInsets.only(top: 10),
+                                      child: RaisedButton(
+                                        child: Text('Done',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold)),
+                                        color: Color(0xffe9daee),
+                                        elevation: 15,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10.0))),
+                                        onPressed: () {
+                                          Route route = MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DashBoard());
+                                          Navigator.push(context, route);
+                                        },
+                                      ),
+                                    )),
                             ],
                           ),
                         )

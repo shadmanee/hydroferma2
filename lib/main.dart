@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'package:hydroferma2/pages/loginsignup.dart';
-import 'package:path/path.dart' as Path;
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
@@ -15,86 +12,118 @@ import 'package:hydroferma2/pages/waterdata.dart';
 import 'package:hydroferma2/pages/waterdevices.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: DashBoard()));
+  runApp(MaterialApp(title: 'Hydroferma', home: Land()));
 }
 
-class Land extends StatefulWidget {
-  const Land({Key? key}) : super(key: key);
+class LoginSignup extends StatefulWidget {
+  const LoginSignup({Key? key}) : super(key: key);
 
   @override
-  State<Land> createState() => _LandState();
+  State<LoginSignup> createState() => _LoginSignupState();
 }
 
-class _LandState extends State<Land> {
-  @override
-  void initState() {
-    super.initState();
-    startTimer();
-  }
-
-  startTimer() async {
-    var duration = Duration(seconds: 7);
-    return Timer(duration, route);
-  }
-
-  route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => LoginSignup()));
-  }
-
+class Land extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff77AAD4),
-        body: Container(
-          child: Center(
-            child: Column(
-              children: [
-                Expanded(
-                  child: Container(),
-                ),
-                Row(children: [
-                  Expanded(child: Container()),
-                  Column(
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.aspectRatio * 600,
-                        child: Image.asset('images/logo-blue.png'),
-                      ),
-                      Text(
-                        'Hydroferma',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize:
-                                MediaQuery.of(context).size.aspectRatio * 90,
-                            color: Colors.white),
-                      ),
-                      Container(
-                          width: MediaQuery.of(context).size.width / 1.7,
-                          padding: EdgeInsets.only(top: 30),
-                          child: FAProgressBar(
-                            progressColor: Colors.white,
-                            displayTextStyle:
-                                TextStyle(color: Colors.grey[500]),
-                            maxValue: 100,
-                            currentValue: 100,
-                            displayText: '%',
-                            direction: Axis.horizontal,
-                            animatedDuration: Duration(seconds: 6),
-                          ))
-                    ],
-                  ),
-                  Expanded(child: Container())
-                ]),
-                Expanded(child: Container())
-              ],
+      backgroundColor: Color(0xff77AAD4),
+      body: Center(
+        child: Column(children: <Widget>[
+          IconButton(
+          iconSize: 200,
+          icon: Image.asset('images/logo-blue.png'),
+          onPressed: () {
+            Navigator.of(context).push(_createRoute());
+          }), 
+          Text('Hydroferma', style: TextStyle(fontSize: 50,fontWeight: FontWeight.w900, color: Colors.white),)
+        ],),
+        ),
+      );
+  }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const LoginSignup(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return child;
+    },
+  );
+}
+
+class _LoginSignupState extends State<LoginSignup> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Row(children: <Widget>[
+            Expanded(
+                child: Container(
+                    height: 100,
+                    width: 100,
+                    margin: EdgeInsets.only(bottom: 50, top: 150))),
+            Container(
+              height: 200,
+              width: 200,
+              margin: EdgeInsets.only(bottom: 45, top: 130),
+              child: Image.asset('images/logo-white.png'),
             ),
-          ),
-        ));
+            Expanded(
+                child: Container(
+                    height: 100,
+                    width: 100,
+                    margin: EdgeInsets.only(bottom: 50, top: 150)))
+          ]),
+          Row(children: <Widget>[
+            Expanded(child: Container(height: 80, width: 200)),
+            Container(
+                height: 60,
+                width: 200,
+                child: RaisedButton(
+                  child: Text('Log In',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
+                  color: Color(0xff48BF91),
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => LogIn());
+                    Navigator.push(context, route);
+                  },
+                )),
+            Expanded(child: Container(height: 80, width: 200)),
+          ]),
+          Row(children: <Widget>[
+            Expanded(child: Container(height: 80, width: 200)),
+            Container(
+                height: 60,
+                width: 200,
+                child: RaisedButton(
+                  // SIGNUP BUTTON
+                  child: Text('Sign Up',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
+                  color: Color(0xff48BF91),
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
+                  onPressed: () {
+                    // GOTO SIGNUP PAGE
+                    Route route =
+                        MaterialPageRoute(builder: (context) => SignUp());
+                    Navigator.push(context, route);
+                  },
+                )),
+            Expanded(child: Container(height: 80, width: 200)),
+          ])
+        ],
+      ),
+    );
   }
 }

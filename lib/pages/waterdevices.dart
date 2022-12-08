@@ -51,8 +51,8 @@ class _WaterDevicesState extends State<WaterDevices> {
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
                     onPressed: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => WaterNutrient());
+                      Route route =
+                          MaterialPageRoute(builder: (context) => Water());
                       Navigator.push(context, route);
                     },
                   ),
@@ -205,8 +205,8 @@ class _WaterDevicesState extends State<WaterDevices> {
                     IconButton(
                         icon: Icon(Icons.arrow_back_ios),
                         onPressed: () {
-                          Route route = MaterialPageRoute(
-                              builder: (context) => WaterNutrient());
+                          Route route =
+                              MaterialPageRoute(builder: (context) => Water());
                           Navigator.push(context, route);
                         }),
                     Container(

@@ -76,7 +76,7 @@ class _LoginSignupState extends State<LoginSignup> {
                                   BorderRadius.all(Radius.circular(6.0))),
                           onPressed: () {
                             Route route = MaterialPageRoute(
-                                builder: (context) => LogIn());
+                                builder: (context) => SignUp());
                             Navigator.push(context, route);
                           },
                         ))

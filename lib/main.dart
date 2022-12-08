@@ -20,7 +20,7 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: SignUp()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: DashBoard()));
 }
 
 class Land extends StatefulWidget {

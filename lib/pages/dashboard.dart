@@ -1,8 +1,13 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
+import 'package:hydroferma2/pages/crops.dart';
+import 'package:hydroferma2/pages/devinfo.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/notification.dart';
+import 'package:hydroferma2/pages/power.dart';
+import 'package:hydroferma2/pages/settings.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
 
 class DashBoard extends StatefulWidget {
@@ -16,31 +21,47 @@ class _DashBoardState extends State<DashBoard> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    var s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
       key: _scaffoldKey,
       drawer: Container(
-        width: 250,
+        width: w / 1.25,
         child: Drawer(
           backgroundColor: Color(0xff89B6DC),
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+          child: Center(
+              child: Column(
             children: [
               Container(
-                alignment: Alignment(1, -1),
-                child: IconButton(
-                    iconSize: 40,
-                    onPressed: () {
-                      if (_scaffoldKey.currentState!.isDrawerOpen) {
-                        Navigator.pop(context);
-                      }
-                    },
-                    icon: Image.asset('images/logo-blue.png')),
+                height: h / 4,
+                child: UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Color(0xff89B6DC),
+                    image: new DecorationImage(
+                      fit: BoxFit.cover,
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.2), BlendMode.dstATop),
+                      image: AssetImage('images/cat.jpg'),
+                    ),
+                  ),
+                  accountName: Text('Shadmanee Tasneem'),
+                  accountEmail: Text('shadmanee@gmail.com'),
+                  currentAccountPicture: Container(
+                    // padding: EdgeInsets.only(top: s * 10),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/cat.jpg'),
+                      radius: w / 10,
+                    ),
+                  ),
+                ),
               ),
               Container(
                 height: 20,
               ),
               Container(
-                height: 50,
+                height: h / 14,
+                width: w / 1.5,
                 child: RaisedButton(
                   color: Color(0xff6CA3D1),
                   shape: RoundedRectangleBorder(
@@ -52,15 +73,16 @@ class _DashBoardState extends State<DashBoard> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
                   onPressed: () {
-                    Route route = MaterialPageRoute(
-                        builder: (context) => WaterNutrient());
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Water());
                     Navigator.push(context, route);
                   },
                 ),
               ),
               Divider(),
               Container(
-                height: 50,
+                height: h / 14,
+                width: w / 1.5,
                 child: RaisedButton(
                   color: Color(0xff6CA3D1),
                   shape: RoundedRectangleBorder(
@@ -71,12 +93,17 @@ class _DashBoardState extends State<DashBoard> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Power());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
               Container(
-                height: 50,
+                height: h / 14,
+                width: w / 1.5,
                 child: RaisedButton(
                   color: Color(0xff6CA3D1),
                   shape: RoundedRectangleBorder(
@@ -87,12 +114,17 @@ class _DashBoardState extends State<DashBoard> {
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Crops());
+                    Navigator.push(context, route);
+                  },
                 ),
               ),
               Divider(),
               Container(
-                height: 50,
+                height: h / 14,
+                width: w / 1.5,
                 child: RaisedButton(
                   color: Color(0xff6CA3D1),
                   shape: RoundedRectangleBorder(
@@ -112,7 +144,8 @@ class _DashBoardState extends State<DashBoard> {
               ),
               Divider(),
               Container(
-                height: 50,
+                height: h / 14,
+                width: w / 1.5,
                 child: RaisedButton(
                   color: Color(0xff6CA3D1),
                   shape: RoundedRectangleBorder(
@@ -131,39 +164,86 @@ class _DashBoardState extends State<DashBoard> {
                 ),
               ),
               Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Data Log',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
+              SizedBox(
+                height: h / 20,
               ),
-              Divider(),
               Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Preferences',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
+                alignment: Alignment(1, -1),
+                padding: EdgeInsets.only(right: ((w / 1.25) - (w / 1.5)) / 2),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Home',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        IconButton(
+                          iconSize: w / 14,
+                          onPressed: () {
+                            if (_scaffoldKey.currentState!.isDrawerOpen) {
+                              Navigator.pop(context);
+                              Route route = MaterialPageRoute(
+                                  builder: (context) => DashBoard());
+                              Navigator.push(context, route);
+                            }
+                          },
+                          icon: Icon(Icons.home),
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Settings',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        IconButton(
+                          iconSize: w / 14,
+                          onPressed: () {
+                            if (_scaffoldKey.currentState!.isDrawerOpen) {
+                              Navigator.pop(context);
+                              Route route = MaterialPageRoute(
+                                  builder: (context) => Settings());
+                              Navigator.push(context, route);
+                            }
+                          },
+                          icon: Icon(Icons.settings),
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'About',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        IconButton(
+                          iconSize: w / 14,
+                          onPressed: () {
+                            if (_scaffoldKey.currentState!.isDrawerOpen) {
+                              Navigator.pop(context);
+                              Route route = MaterialPageRoute(
+                                  builder: (context) => Info());
+                              Navigator.push(context, route);
+                            }
+                          },
+                          icon: Icon(Icons.info_outline),
+                          color: Colors.white,
+                        )
+                      ],
+                    )
+                  ],
                 ),
               )
             ],
-          ),
+          )),
         ),
       ),
       body: Container(

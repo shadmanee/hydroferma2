@@ -51,8 +51,8 @@ class _Notifications extends State<Notifications> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
                   onPressed: () {
-                    Route route = MaterialPageRoute(
-                        builder: (context) => WaterNutrient());
+                    Route route =
+                        MaterialPageRoute(builder: (context) => Water());
                     Navigator.push(context, route);
                   },
                 ),

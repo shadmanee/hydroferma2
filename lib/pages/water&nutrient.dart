@@ -9,7 +9,7 @@ import 'package:hydroferma2/pages/waterdevices.dart';
 
 import 'weekly_chart.dart';
 
-class WaterNutrient extends StatelessWidget {
+class Water extends StatelessWidget {
   final List<double> data = [
     2,
     2.3,
@@ -66,8 +66,8 @@ class WaterNutrient extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
                     onPressed: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => WaterNutrient());
+                      Route route =
+                          MaterialPageRoute(builder: (context) => Water());
                       Navigator.push(context, route);
                     },
                   ),
@@ -363,8 +363,8 @@ class WaterNutrient extends StatelessWidget {
                       ),
                       onPressed: () {
                         Route route = MaterialPageRoute(
-                                        builder: (context) => Notifications());
-                                    Navigator.push(context, route);
+                            builder: (context) => Notifications());
+                        Navigator.push(context, route);
                       },
                     ),
                   ),
@@ -446,8 +446,8 @@ class Nutrient extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
                     onPressed: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => WaterNutrient());
+                      Route route =
+                          MaterialPageRoute(builder: (context) => Water());
                       Navigator.push(context, route);
                     },
                   ),
@@ -683,7 +683,7 @@ class Nutrient extends StatelessWidget {
 
 Route _createRoute2() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => WaterNutrient(),
+    pageBuilder: (context, animation, secondaryAnimation) => Water(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return child;
     },

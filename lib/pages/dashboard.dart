@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
@@ -48,16 +47,15 @@ class _DashBoardState extends State<DashBoard> {
                   accountName: Text('Shadmanee Tasneem'),
                   accountEmail: Text('shadmanee@gmail.com'),
                   currentAccountPicture: Container(
-                    // padding: EdgeInsets.only(top: s * 10),
                     child: CircleAvatar(
                       backgroundImage: AssetImage('images/cat.jpg'),
-                      radius: w / 10,
+                      radius: w / 20,
                     ),
                   ),
                 ),
               ),
               Container(
-                height: 20,
+                height: h / 55,
               ),
               Container(
                 height: h / 14,
@@ -164,8 +162,8 @@ class _DashBoardState extends State<DashBoard> {
                 ),
               ),
               Divider(),
-              SizedBox(
-                height: h / 20,
+              Container(
+                height: h / 60,
               ),
               Container(
                 alignment: Alignment(1, -1),

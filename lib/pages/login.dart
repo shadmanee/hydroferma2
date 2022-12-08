@@ -11,82 +11,71 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    var s = MediaQuery.of(context).size.aspectRatio;
     var formKey = GlobalKey<FormState>();
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color(0xff8bd9c7),
         body: Column(
           children: <Widget>[
             Row(
               children: <Widget>[
                 Container(
-                    margin: EdgeInsets.only(top: 20, left: 3),
+                    margin: EdgeInsets.only(top: s * 80, left: s * 10),
                     child: IconButton(
-                        iconSize: 20,
+                        iconSize: s * 50,
                         icon: const Icon(
                           Icons.arrow_back_ios,
                         ),
                         onPressed: () {
                           Navigator.pop(context);
                         })),
-                Expanded(
-                  child: Container(
-                      width: 100, margin: EdgeInsets.only(left: 5, top: 5)),
-                )
+                Expanded(child: Container())
               ],
             ),
             Row(
               children: <Widget>[
-                Expanded(
-                    child: Container(
-                        height: 100, margin: EdgeInsets.only(top: 20))),
+                Expanded(child: Container()),
                 Container(
-                  height: 100,
-                  width: 100,
-                  margin: EdgeInsets.only(top: 20),
+                  height: h / 4,
+                  width: h / 4,
+                  margin: EdgeInsets.only(top: h / 20),
                   child: Image.asset('images/logo-green.png'),
                 ),
-                Expanded(
-                    child: Container(
-                        height: 100, margin: EdgeInsets.only(top: 90)))
+                Expanded(child: Container())
               ],
             ),
             Row(
               children: <Widget>[
-                Expanded(
-                    child: Container(
-                        height: 100, margin: EdgeInsets.only(top: 5))),
+                Expanded(child: Container()),
                 Container(
-                    height: 200,
-                    width: 250,
-                    margin: EdgeInsets.only(top: 5),
-                    child: ListView(
-                      children: <Widget>[
-                        Form(
-                          key: formKey,
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Email or Phone'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              TextFormField(
-                                decoration:
-                                    InputDecoration(labelText: 'Password'),
-                              ),
-                              Container(
-                                height: 40,
-                                width: 100,
-                                margin: EdgeInsets.only(top: 10),
-                                child: RaisedButton(
+                    height: h / 3,
+                    width: w / 1.5,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.aspectRatio),
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        children: <Widget>[
+                          TextFormField(
+                            decoration:
+                                InputDecoration(labelText: 'Email or Phone'),
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(labelText: 'Password'),
+                          ),
+                          Container(
+                              height: h / 14.5,
+                              width: w / 4,
+                              margin: EdgeInsets.only(top: h / 20),
+                              child: RaisedButton(
                                   child: Text('Log In',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 20)),
+                                          color: Colors.white,
+                                          fontSize: s * 30)),
                                   color: Color(0xff48BF91),
                                   elevation: 10,
                                   shape: RoundedRectangleBorder(
@@ -96,23 +85,13 @@ class _LogInState extends State<LogIn> {
                                     Route route = MaterialPageRoute(
                                         builder: (context) => DashBoard());
                                     Navigator.push(context, route);
-                                  },
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                                  }))
+                        ],
+                      ),
                     )),
-                Expanded(
-                    child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 50, top: 5)))
+                Expanded(child: Container())
               ],
-            ),
-            Row(),
-            Row(),
-            Row()
+            )
           ],
         ));
   }

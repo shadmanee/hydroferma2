@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
@@ -15,11 +14,10 @@ import 'package:hydroferma2/pages/waterdevices.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
+// import 'package:google_fonts/google_fonts.dart';
 class LoginSignup extends StatefulWidget {
   const LoginSignup({Key? key}) : super(key: key);
-
   @override
   State<LoginSignup> createState() => _LoginSignupState();
 }
@@ -76,7 +74,7 @@ class _LoginSignupState extends State<LoginSignup> {
                                   BorderRadius.all(Radius.circular(6.0))),
                           onPressed: () {
                             Route route = MaterialPageRoute(
-                                builder: (context) => SignUp());
+                                builder: (context) => LogIn());
                             Navigator.push(context, route);
                           },
                         ))

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:hydroferma2/pages/checkprogresscircular.dart';
 import 'package:hydroferma2/pages/checkslidingpanel.dart';
+import 'package:hydroferma2/pages/crops.dart';
 // import 'package:hydroferma2/pages/checkwater.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/emptypagetotest.dart';
@@ -20,7 +21,7 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 
 // import 'package:google_fonts/google_fonts.dart';
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: DashBoard()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: changephoto()));
 }
 
 class Land extends StatefulWidget {

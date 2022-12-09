@@ -87,297 +87,263 @@ class _UserAccount extends State<UserAccount> {
                 //main kaj
                 Column(children: <Widget>[
                   Container(
-                    width: w - (3 * w / 33),
-                    height: h - (h / 8),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      clipBehavior: Clip.antiAlias,
+                    //color: Color(0xffC9F3E9),
+                    width: w - (3 * w / 40),
+                    height: h - (h / 4),
+
+                    child: Container(
+                      height: MediaQuery.of(context).size.aspectRatio * 350,
+                      width: MediaQuery.of(context).size.aspectRatio * 750,
+                      color: Color(0xffC9F3E9),
                       child: Column(
                         children: [
                           Container(
-                            height:
-                                MediaQuery.of(context).size.aspectRatio * 1250,
-                            width:
-                                MediaQuery.of(context).size.aspectRatio * 750,
-                            color: Color(0xffC9F3E9),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      bottom: h * 0.01,
-                                      top: h * 0.02,
-                                      left: w * 0.02,
-                                      right: w * 0.02),
-                                  child: IconButton(
-                                    iconSize: w / 2.5,
-                                    icon: Image.asset('images/addphoto.png'),
-                                    onPressed: () {
-                                      Route route = MaterialPageRoute(
-                                          builder: (context) => changephoto());
-                                      Navigator.push(context, route);
-                                    },
+                            padding: EdgeInsets.only(
+                                bottom: h * 0.01,
+                                top: h * 0.02,
+                                left: w * 0.02,
+                                right: w * 0.02),
+                            child: IconButton(
+                              iconSize: w / 3,
+                              icon: Image.asset('images/addphoto.png'),
+                              onPressed: () {
+                                Route route = MaterialPageRoute(
+                                    builder: (context) => changephoto());
+                                Navigator.push(context, route);
+                              },
+                            ),
+                          ),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  bottom: h * 0.001,
+                                  top: h * 0.001,
+                                  left: w * 0.02,
+                                  right: w * 0.02),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        100,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    750,
+                                color: Color(0xff9AE7C9),
+                                child: FlatButton(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: w / 8,
+                                        icon: Image.asset('images/user2.png'),
+                                        onPressed: () {
+                                          //Navigator.of(context).push(_createnext());
+                                        },
+                                      ),
+                                      Text('Sadia Tasneem Sara',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black)),
+                                    ],
                                   ),
+                                  onPressed: () {},
                                 ),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: h * 0.01,
-                                        top: h * 0.04,
-                                        left: w * 0.02,
-                                        right: w * 0.02),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          750,
-                                      color: Color(0xff9AE7C9),
-                                      child: FlatButton(
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              iconSize: w / 8,
-                                              icon: Image.asset(
-                                                  'images/user2.png'),
-                                              onPressed: () {
-                                                //Navigator.of(context).push(_createnext());
-                                              },
-                                            ),
-                                            Text('Sadia Tasneem Sara',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black)),
-                                          ],
-                                        ),
+                              )),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  bottom: h * 0.001,
+                                  top: h * 0.001,
+                                  left: w * 0.02,
+                                  right: w * 0.02),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        100,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    750,
+                                color: Color(0xff9AE7C9),
+                                child: FlatButton(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: w / 8,
+                                        icon: Image.asset(
+                                            'images/smartphone.png'),
                                         onPressed: () {},
                                       ),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: h * 0.01,
-                                        top: h * 0,
-                                        left: w * 0.02,
-                                        right: w * 0.02),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          750,
-                                      color: Color(0xff9AE7C9),
-                                      child: FlatButton(
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              iconSize: w / 8,
-                                              icon: Image.asset(
-                                                  'images/smartphone.png'),
-                                              onPressed: () {},
-                                            ),
-                                            Text('01537599843',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black)),
-                                          ],
-                                        ),
+                                      Text('01537599843',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  bottom: h * 0.001,
+                                  top: h * 0.001,
+                                  left: w * 0.02,
+                                  right: w * 0.02),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        100,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    750,
+                                color: Color(0xff9AE7C9),
+                                child: FlatButton(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: w / 8,
+                                        icon: Image.asset('images/padlock.png'),
                                         onPressed: () {},
                                       ),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: h * 0.01,
-                                        top: h * 0,
-                                        left: w * 0.02,
-                                        right: w * 0.02),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          750,
-                                      color: Color(0xff9AE7C9),
-                                      child: FlatButton(
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              iconSize: w / 8,
-                                              icon: Image.asset(
-                                                  'images/padlock.png'),
-                                              onPressed: () {},
-                                            ),
-                                            Text('***',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black)),
-                                            // Container(
-                                            //   child: TextField(
-                                            //     obscureText: passenable,
-                                            //     decoration: InputDecoration(
-                                            //         border: InputBorder.none,
-                                            //         suffix: IconButton(
-                                            //             onPressed: () {
-                                            //               setState(() {
-                                            //                 //refresh UI
-                                            //                 if (passenable) {
-                                            //                   //if passenable == true, make it false
-                                            //                   passenable =
-                                            //                       false;
-                                            //                 } else {
-                                            //                   passenable =
-                                            //                       true; //if passenable == false, make it true
-                                            //                 }
-                                            //               });
-                                            //             },
-                                            //             icon: Icon(passenable ==
-                                            //                     true
-                                            //                 ? Icons
-                                            //                     .remove_red_eye
-                                            //                 : Icons.password))),
-                                            //     controller: myinput,
-                                            //   ),
-                                            // )
-                                          ],
-                                        ),
+                                      Text('***',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black)),
+                                      // Container(
+                                      //   child: TextField(
+                                      //     obscureText: passenable,
+                                      //     decoration: InputDecoration(
+                                      //         border: InputBorder.none,
+                                      //         suffix: IconButton(
+                                      //             onPressed: () {
+                                      //               setState(() {
+                                      //                 //refresh UI
+                                      //                 if (passenable) {
+                                      //                   //if passenable == true, make it false
+                                      //                   passenable =
+                                      //                       false;
+                                      //                 } else {
+                                      //                   passenable =
+                                      //                       true; //if passenable == false, make it true
+                                      //                 }
+                                      //               });
+                                      //             },
+                                      //             icon: Icon(passenable ==
+                                      //                     true
+                                      //                 ? Icons
+                                      //                     .remove_red_eye
+                                      //                 : Icons.password))),
+                                      //     controller: myinput,
+                                      //   ),
+                                      // )
+                                    ],
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  bottom: h * 0.02,
+                                  top: h * 0.001,
+                                  left: w * 0.02,
+                                  right: w * 0.02),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        100,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    750,
+                                color: Color(0xff9AE7C9),
+                                child: FlatButton(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: w / 8,
+                                        icon: Image.asset(
+                                            'images/placeholder.png'),
                                         onPressed: () {},
                                       ),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: h * 0.01,
-                                        top: h * 0,
-                                        left: w * 0.02,
-                                        right: w * 0.02),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          750,
-                                      color: Color(0xff9AE7C9),
-                                      child: FlatButton(
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              iconSize: w / 8,
-                                              icon: Image.asset(
-                                                  'images/placeholder.png'),
-                                              onPressed: () {},
-                                            ),
-                                            Text('Mirpur DOHS, Dhaka.',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black)),
-                                          ],
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    )),
-                                //BUTTON
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        top: h * 0.01,
-                                        left: w * 0.1,
-                                        right: w * 0.1,
-                                        bottom: h * 0.01),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          230,
-                                      margin: EdgeInsets.only(top: 10),
-                                      child: RaisedButton(
-                                        child: Text('Edit Profile',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold)),
-                                        color: Color(0xff79C3FF),
-                                        elevation: 15,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20.0))),
+                                      Text('Mirpur DOHS, Dhaka.',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black)),
+                                    ],
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )),
+                          //BUTTON
+                          Container(
+                              padding: EdgeInsets.only(
+                                  top: h * 0.001,
+                                  left: w * 0.1,
+                                  right: w * 0.1,
+                                  bottom: h * 0.02),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        80,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    250,
+                                margin: EdgeInsets.only(top: 5),
+                                child: RaisedButton(
+                                  child: Text('Edit Profile',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold)),
+                                  color: Color(0xff79C3FF),
+                                  elevation: 15,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0))),
+                                  onPressed: () {
+                                    Route route = MaterialPageRoute(
+                                        builder: (context) => EditProfile());
+                                    Navigator.push(context, route);
+                                  },
+                                ),
+                              )),
+                          Container(
+                              padding: EdgeInsets.only(
+                                  top: h * 0.001,
+                                  left: w * 0.001,
+                                  right: w * 0.001,
+                                  bottom: h * 0.001),
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.aspectRatio *
+                                        100,
+                                width: MediaQuery.of(context).size.aspectRatio *
+                                    250,
+                                //margin: EdgeInsets.only(top: h * .001),
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      IconButton(
+                                        iconSize: w / 9,
+                                        icon: Image.asset('images/logout.png'),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
-                                              builder: (context) =>
-                                                  EditProfile());
+                                              builder: (context) => LogIn());
                                           Navigator.push(context, route);
                                         },
                                       ),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(
-                                        top: h * 0.01,
-                                        left: w * 0.01,
-                                        right: w * 0.01,
-                                        bottom: h * 0.01),
-                                    child: Container(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          100,
-                                      width: MediaQuery.of(context)
-                                              .size
-                                              .aspectRatio *
-                                          250,
-                                      margin: EdgeInsets.only(top: h * .01),
-                                      child: Container(
-                                        child: Row(
-                                          children: [
-                                            IconButton(
-                                              iconSize: w / 9,
-                                              icon: Image.asset(
-                                                  'images/logout.png'),
-                                              onPressed: () {
-                                                Route route = MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        LogIn());
-                                                Navigator.push(context, route);
-                                              },
-                                            ),
-                                            IconButton(
-                                              iconSize: w / 9,
-                                              icon: Image.asset(
-                                                  'images/poweroff.png'),
-                                              onPressed: () {
-                                                Route route = MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        LogIn());
-                                                Navigator.push(context, route);
-                                              },
-                                            ),
-                                          ],
-                                        ),
+                                      IconButton(
+                                        iconSize: w / 9,
+                                        icon:
+                                            Image.asset('images/poweroff.png'),
+                                        onPressed: () {
+                                          Route route = MaterialPageRoute(
+                                              builder: (context) => LogIn());
+                                          Navigator.push(context, route);
+                                        },
                                       ),
-                                    )),
-                              ],
-                            ),
-                          )
+                                    ],
+                                  ),
+                                ),
+                              )),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ])
               ],
             )

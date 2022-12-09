@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:hydroferma2/pages/checkslidingpanel.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/loginsignup.dart';
@@ -15,7 +16,7 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 
 // import 'package:google_fonts/google_fonts.dart';
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: Land()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: DashBoard()));
 }
 
 class Land extends StatefulWidget {

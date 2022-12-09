@@ -11,38 +11,45 @@ class SlidingPanel extends StatefulWidget {
 }
 
 class _SlidingPanelState extends State<SlidingPanel> {
+  PanelController _pc = new PanelController();
+
   @override
   Widget build(BuildContext context) {
-    h = MediaQuery.of(context).size.height;
-    w = MediaQuery.of(context).size.width;
-    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
+      appBar: AppBar(
+        title: Text("SlidingUpPanelExample"),
+      ),
       body: SlidingUpPanel(
-        backdropEnabled: true,
-        backdropTapClosesPanel: true,
-        color: Colors.transparent,
-        panel: Container(
-          decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              BarIndicator(),
-              RaisedButton(
-                child: Text('Read More'),
-                onPressed: () {
-                  print('button pressed');
-                },
-              )
-            ],
-          ),
+        controller: _pc,
+        panel: Center(
+          child: Text("This is the sliding Widget"),
         ),
-        body: Container(
-            child: Center(
-          child: Text('main page'),
-        )),
+        body: _body(),
+      ),
+    );
+  }
+
+  Widget _body() {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          RaisedButton(
+            child: Text("Open"),
+            onPressed: () => _pc.open(),
+          ),
+          RaisedButton(
+            child: Text("Close"),
+            onPressed: () => _pc.close(),
+          ),
+          RaisedButton(
+            child: Text("Show"),
+            onPressed: () => _pc.show(),
+          ),
+          RaisedButton(
+            child: Text("Hide"),
+            onPressed: () => _pc.hide(),
+          ),
+        ],
       ),
     );
   }

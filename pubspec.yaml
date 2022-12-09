@@ -37,6 +37,7 @@ dependencies:
   flutter_spinkit: ^5.1.0
   flutter_animation_progress_bar: ^2.3.1
   sliding_up_panel: ^2.0.0+1
+  syncfusion_flutter_gauges: ^18.2.44
 
 dev_dependencies:
   flutter_test:

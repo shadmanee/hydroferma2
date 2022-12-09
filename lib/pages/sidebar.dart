@@ -163,7 +163,7 @@ class _SideBarOnlyState extends State<SideBarOnly> {
             ),
             Divider(),
             Container(
-              height: h / 60,
+              height: h / 90,
             ),
             Container(
               alignment: Alignment(1, -1),
@@ -176,10 +176,10 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                     children: [
                       Text(
                         'Home',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       IconButton(
-                        iconSize: w / 14,
+                        iconSize: w / 18,
                         onPressed: () {
                           Navigator.pop(context);
                           Route route = MaterialPageRoute(
@@ -196,10 +196,10 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                     children: [
                       Text(
                         'Settings',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       IconButton(
-                        iconSize: w / 14,
+                        iconSize: w / 18,
                         onPressed: () {
                           if (_scaffoldKey.currentState!.isDrawerOpen) {
                             Navigator.pop(context);
@@ -213,24 +213,44 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                       ),
                     ],
                   ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: [
+                  //     Text(
+                  //       'About',
+                  //       style: TextStyle(color: Colors.white, fontSize: 14),
+                  //     ),
+                  //     IconButton(
+                  //       iconSize: w / 18,
+                  //       onPressed: () {
+                  //         if (_scaffoldKey.currentState!.isDrawerOpen) {
+                  //           Navigator.pop(context);
+                  //           Route route =
+                  //               MaterialPageRoute(builder: (context) => Info());
+                  //           Navigator.push(context, route);
+                  //         }
+                  //       },
+                  //       icon: Icon(Icons.info_outline),
+                  //       color: Colors.white,
+                  //     )
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        'About',
-                        style: TextStyle(color: Colors.white),
+                        'Log',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       IconButton(
-                        iconSize: w / 14,
+                        iconSize: w / 18,
                         onPressed: () {
-                          if (_scaffoldKey.currentState!.isDrawerOpen) {
-                            Navigator.pop(context);
-                            Route route =
-                                MaterialPageRoute(builder: (context) => Info());
-                            Navigator.push(context, route);
-                          }
+                          Navigator.pop(context);
+                          Route route = MaterialPageRoute(
+                              builder: (context) => DashBoard());
+                          Navigator.push(context, route);
                         },
-                        icon: Icon(Icons.info_outline),
+                        icon: Icon(Icons.bar_chart),
                         color: Colors.white,
                       )
                     ],

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
@@ -10,6 +12,9 @@ import 'package:hydroferma2/pages/settings.dart';
 import 'package:hydroferma2/pages/sidebar.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:charcode/charcode.dart';
+
+import 'checkprogresscircular.dart';
 
 var h, w, s;
 
@@ -37,7 +42,8 @@ class _DashBoardState extends State<DashBoard> {
           backdropTapClosesPanel: true,
           backdropEnabled: true,
           color: Colors.transparent,
-          minHeight: h / 25,
+          minHeight: h / 20,
+          maxHeight: h / 1.5,
           panel: Container(
             decoration: BoxDecoration(
                 color: Colors.blueGrey[50],
@@ -46,7 +52,79 @@ class _DashBoardState extends State<DashBoard> {
                     topRight: Radius.circular(20))),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [BarIndicator(), Container()],
+              children: [
+                BarIndicator(),
+                Container(
+                  padding: EdgeInsets.only(left: w / 12),
+                  child: Row(
+                    children: [
+                      Container(
+                          child: Row(children: <Widget>[
+                        Center(
+                            child: Text(
+                          'Module : ',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black),
+                        )),
+                        Container(
+                          padding: EdgeInsets.only(left: w / 30),
+                          child: DropdownButtonExample(),
+                        ),
+                      ]))
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: h / 40),
+                  width: MediaQuery.of(context).size.width / 1.2,
+                  color: Colors.transparent,
+                  child: Column(
+                    children: [
+                      Row(children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).size.height / 33),
+                          child: Text(
+                            'Water Supply',
+                            style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey[600]),
+                          ),
+                        )
+                      ]),
+                      Text(
+                        'A hydroponic vertical farm requires at most 5-6 L of water every day, depending on the area of the farm, and the temperature, pressure and humidity of the surroundings.',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.grey[600]),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height / 40)),
+                      Text(
+                        'Hydroponic systems use less water — as much as 10 times less water — than traditional field crop watering methods.',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.grey[600]),
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Read More',
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black),
+                          ))
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
           body: Container(
@@ -108,26 +186,69 @@ class _DashBoardState extends State<DashBoard> {
                                       pc.open();
                                     },
                                     child: Container(
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                          color: Color(0xff95D8EB),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0x26000000),
-                                              offset: const Offset(
-                                                5.0,
-                                                5.0,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                            color: Color(0xff95D8EB),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color(0x26000000),
+                                                offset: const Offset(
+                                                  5.0,
+                                                  5.0,
+                                                ),
+                                                blurRadius: 10.0,
+                                                spreadRadius: 2.0,
+                                              ), //BoxShadow
+                                            ]),
+                                        margin: EdgeInsets.only(
+                                            right: w * 0.01, bottom: w * 0.02),
+                                        height: h / 3.2,
+                                        width: w * 0.42,
+                                        child: Column(
+                                          children: [
+                                            Expanded(child: Container()),
+                                            Center(
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    '4.7',
+                                                    style: TextStyle(
+                                                        fontSize: 50,
+                                                        fontWeight:
+                                                            FontWeight.w200,
+                                                        color: Colors.black),
+                                                  ),
+                                                  Text(
+                                                    'L/m2/day',
+                                                    style: TextStyle(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.w100,
+                                                        color: Colors.black),
+                                                  ),
+                                                  Text(
+                                                    'Current Water',
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Colors.black),
+                                                  ),
+                                                  Text(
+                                                    'Consumption',
+                                                    style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: Colors.black),
+                                                  )
+                                                ],
                                               ),
-                                              blurRadius: 10.0,
-                                              spreadRadius: 2.0,
-                                            ), //BoxShadow
-                                          ]),
-                                      margin: EdgeInsets.only(
-                                          right: w * 0.01, bottom: w * 0.02),
-                                      height: h / 3.2,
-                                      width: w * 0.42,
-                                    ),
+                                            ),
+                                            Expanded(child: Container())
+                                          ],
+                                        )),
                                   ),
                                   // 0xff8BD9C7
                                   GestureDetector(
@@ -154,6 +275,61 @@ class _DashBoardState extends State<DashBoard> {
                                           right: w * 0.01, bottom: w * 0.02),
                                       height: h / 2.3,
                                       width: w * 0.42,
+                                      child: Column(
+                                        children: [
+                                          Expanded(child: Container()),
+                                          Center(
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  'Current',
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Colors.black),
+                                                ),
+                                                Text(
+                                                  'Plants',
+                                                  style: TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color: Colors.black),
+                                                ),
+                                                SizedBox(
+                                                  height: h / 50,
+                                                ),
+                                                Text(
+                                                  '1. Coriander',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      color: Colors.black),
+                                                ),
+                                                Text(
+                                                  '2. Malabar',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      color: Colors.black),
+                                                ),
+                                                Text(
+                                                  'Spinach',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      color: Colors.black),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(child: Container())
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
@@ -184,6 +360,32 @@ class _DashBoardState extends State<DashBoard> {
                                           left: w * 0.01, bottom: w * 0.02),
                                       height: (h / 2.3) - 4,
                                       width: w * 0.42,
+                                      child: Column(
+                                        children: [
+                                          Expanded(child: Container()),
+                                          Center(
+                                            child: Column(
+                                              children: [
+                                                Text('3h',
+                                                    style: TextStyle(
+                                                        fontSize: 50,
+                                                        fontWeight:
+                                                            FontWeight.w200,
+                                                        color: Colors.black)),
+                                                Text('9m',
+                                                    style: TextStyle(
+                                                        fontSize: 50,
+                                                        fontWeight:
+                                                            FontWeight.w200,
+                                                        color: Colors.black)),
+                                                Text('Since Last'),
+                                                Text('Water Change')
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(child: Container())
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   // 0xff8BD9C7
@@ -211,6 +413,25 @@ class _DashBoardState extends State<DashBoard> {
                                           left: w * 0.01, bottom: w * 0.02),
                                       height: (h / 3.2) + 4,
                                       width: w * 0.42,
+                                      child: Column(
+                                        children: [
+                                          Expanded(child: Container()),
+                                          Center(
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  color: Colors.transparent,
+                                                  height: ((h / 3.2) + 4) / 2,
+                                                  width: ((h / 3.2) + 4) / 2,
+                                                  child: ProgressCircular(),
+                                                ),
+                                                Text('Power Usage')
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(child: Container())
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
@@ -254,6 +475,50 @@ class _BarIndicatorState extends State<BarIndicator> {
           )
         ],
       ),
+    );
+  }
+}
+
+const List<String> list = <String>[
+  'Water Supply',
+  'Water Change',
+  'Crop Recommendation',
+  'Power Usage'
+];
+
+class DropdownButtonExample extends StatefulWidget {
+  const DropdownButtonExample({Key? key}) : super(key: key);
+
+  @override
+  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+}
+
+class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+  String dropdownValue = list.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      icon: const Icon(Icons.arrow_drop_down),
+      value: dropdownValue,
+      elevation: 3,
+      items: list.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(
+            value,
+            style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[500]),
+          ),
+        );
+      }).toList(),
+      onChanged: (String? value) {
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
     );
   }
 }

@@ -8,8 +8,11 @@ import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
 import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
-
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:hydroferma2/pages/sidebar.dart';
 import 'bluetooth1.dart';
+
+var h, w, s;
 
 class UserAccount extends StatefulWidget {
   const UserAccount({Key? key}) : super(key: key);
@@ -20,240 +23,124 @@ class UserAccount extends StatefulWidget {
 
 class _UserAccount extends State<UserAccount> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final pc = PanelController();
+  bool passenable = true;
+  TextEditingController myinput = TextEditingController();
+  @override
+  void initState() {
+    myinput.text = "need_some_sleep";
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    h = MediaQuery.of(context).size.height;
+    w = MediaQuery.of(context).size.width;
+    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Container(
-        width: 250,
-        child: Drawer(
-          backgroundColor: Color(0xff89B6DC),
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
-            children: [
-              Container(
-                alignment: Alignment(1, -1),
-                child: IconButton(
-                    iconSize: 40,
-                    onPressed: () {
-                      if (_scaffoldKey.currentState!.isDrawerOpen) {
-                        Navigator.pop(context);
-                      }
-                    },
-                    icon: Image.asset('images/logo-blue.png')),
-              ),
-              Container(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Water & Nutrient Supply',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Water());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Power Usage',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Crop Recommendation',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Life Cycle',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => lifecycle1());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Connect System',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Bluetooth());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Data Log',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Preferences',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: Colors.white,
+      drawer: SideBarOnly(),
       body: Container(
         padding: EdgeInsets.only(top: 20),
         child: Stack(
           children: [
-            Row(
-              children: <Widget>[
-                Container(
-                  child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset('images/logo-white.png'),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                  ),
+            Column(
+              children: [
+                SizedBox(height: h / 33),
+                Row(
+                  children: <Widget>[
+                    Container(
+                      child: IconButton(
+                        iconSize: w / 8,
+                        icon: Image.asset('images/logo-white.png'),
+                        onPressed: () {
+                          _scaffoldKey.currentState!.openDrawer();
+                        },
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    Container(
+                      child: IconButton(
+                        icon: Image.asset('images/noti.png'),
+                        iconSize: w / 8,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => Notifications());
+                          Navigator.push(context, route);
+                        },
+                      ),
+                    ),
+                    Container(
+                      child: IconButton(
+                        icon: Image.asset('images/user-blue.png'),
+                        iconSize: w / 10,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => UserAccount());
+                          Navigator.push(context, route);
+                        },
+                      ),
+                    )
+                  ],
                 ),
-                SizedBox(width: 160),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/noti.png'),
-                    onPressed: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => Notifications());
-                      Navigator.push(context, route);
-                    },
-                  ),
-                ),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/user-blue.png'),
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(15, 60, 15, 15),
-              child: ListView(
-                children: <Widget>[
-                  //function
-
+                //main kaj
+                Column(children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(left: 1, right: 1),
+                    width: w - (3 * w / 33),
+                    height: h - (h / 8),
                     child: Card(
-                      color: Color(0xffC9F3E9),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
                       clipBehavior: Clip.antiAlias,
                       child: Column(
                         children: [
                           Container(
-                            height: 500,
-                            width: 300,
-                            margin: EdgeInsets.only(top: 2),
+                            height:
+                                MediaQuery.of(context).size.aspectRatio * 1250,
+                            width:
+                                MediaQuery.of(context).size.aspectRatio * 750,
                             color: Color(0xffC9F3E9),
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, left: 10, right: 10, bottom: 30),
+                                  padding: EdgeInsets.only(
+                                      bottom: h * 0.01,
+                                      top: h * 0.02,
+                                      left: w * 0.02,
+                                      right: w * 0.02),
                                   child: IconButton(
-                                    iconSize: 150,
+                                    iconSize: w / 2.5,
                                     icon: Image.asset('images/addphoto.png'),
                                     onPressed: () {
-                                      Navigator.of(context)
-                                          .push(_createchange());
+                                      Route route = MaterialPageRoute(
+                                          builder: (context) => changephoto());
+                                      Navigator.push(context, route);
                                     },
                                   ),
                                 ),
-
-                                ///username and all
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 5, left: 7, right: 7, bottom: 1),
+                                    padding: EdgeInsets.only(
+                                        bottom: h * 0.01,
+                                        top: h * 0.04,
+                                        left: w * 0.02,
+                                        right: w * 0.02),
                                     child: Container(
-                                      width: 120,
-                                      height: 60,
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          750,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
                                         child: Row(
                                           children: [
                                             IconButton(
-                                              iconSize: 20,
+                                              iconSize: w / 8,
                                               icon: Image.asset(
                                                   'images/user2.png'),
                                               onPressed: () {
@@ -271,22 +158,29 @@ class _UserAccount extends State<UserAccount> {
                                       ),
                                     )),
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 1, left: 7, right: 7, bottom: 1),
+                                    padding: EdgeInsets.only(
+                                        bottom: h * 0.01,
+                                        top: h * 0,
+                                        left: w * 0.02,
+                                        right: w * 0.02),
                                     child: Container(
-                                      width: 120,
-                                      height: 60,
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          750,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
                                         child: Row(
                                           children: [
                                             IconButton(
-                                              iconSize: 20,
+                                              iconSize: w / 8,
                                               icon: Image.asset(
                                                   'images/smartphone.png'),
-                                              onPressed: () {
-                                                //Navigator.of(context).push(_createnext());
-                                              },
+                                              onPressed: () {},
                                             ),
                                             Text('01537599843',
                                                 style: TextStyle(
@@ -299,52 +193,93 @@ class _UserAccount extends State<UserAccount> {
                                       ),
                                     )),
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 1, left: 7, right: 7, bottom: 1),
+                                    padding: EdgeInsets.only(
+                                        bottom: h * 0.01,
+                                        top: h * 0,
+                                        left: w * 0.02,
+                                        right: w * 0.02),
                                     child: Container(
-                                      width: 120,
-                                      height: 60,
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          750,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
                                         child: Row(
                                           children: [
                                             IconButton(
-                                              iconSize: 20,
+                                              iconSize: w / 8,
                                               icon: Image.asset(
                                                   'images/padlock.png'),
-                                              onPressed: () {
-                                                //Navigator.of(context).push(_createnext());
-                                              },
+                                              onPressed: () {},
                                             ),
-                                            Text('**************',
+                                            Text('***',
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.black)),
+                                            // Container(
+                                            //   child: TextField(
+                                            //     obscureText: passenable,
+                                            //     decoration: InputDecoration(
+                                            //         border: InputBorder.none,
+                                            //         suffix: IconButton(
+                                            //             onPressed: () {
+                                            //               setState(() {
+                                            //                 //refresh UI
+                                            //                 if (passenable) {
+                                            //                   //if passenable == true, make it false
+                                            //                   passenable =
+                                            //                       false;
+                                            //                 } else {
+                                            //                   passenable =
+                                            //                       true; //if passenable == false, make it true
+                                            //                 }
+                                            //               });
+                                            //             },
+                                            //             icon: Icon(passenable ==
+                                            //                     true
+                                            //                 ? Icons
+                                            //                     .remove_red_eye
+                                            //                 : Icons.password))),
+                                            //     controller: myinput,
+                                            //   ),
+                                            // )
                                           ],
                                         ),
                                         onPressed: () {},
                                       ),
                                     )),
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 1, left: 7, right: 7, bottom: 5),
+                                    padding: EdgeInsets.only(
+                                        bottom: h * 0.01,
+                                        top: h * 0,
+                                        left: w * 0.02,
+                                        right: w * 0.02),
                                     child: Container(
-                                      width: 120,
-                                      height: 60,
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          750,
                                       color: Color(0xff9AE7C9),
                                       child: FlatButton(
                                         child: Row(
                                           children: [
                                             IconButton(
-                                              iconSize: 20,
+                                              iconSize: w / 8,
                                               icon: Image.asset(
                                                   'images/placeholder.png'),
-                                              onPressed: () {
-                                                //Navigator.of(context).push(_createnext());
-                                              },
+                                              onPressed: () {},
                                             ),
-                                            Text('Mirpur Cantonment, Dhaka',
+                                            Text('Mirpur DOHS, Dhaka.',
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
@@ -354,25 +289,35 @@ class _UserAccount extends State<UserAccount> {
                                         onPressed: () {},
                                       ),
                                     )),
+                                //BUTTON
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 10, left: 7, right: 7, bottom: 10),
+                                    padding: EdgeInsets.only(
+                                        top: h * 0.01,
+                                        left: w * 0.1,
+                                        right: w * 0.1,
+                                        bottom: h * 0.01),
                                     child: Container(
-                                      height: 40,
-                                      width: 150,
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          230,
                                       margin: EdgeInsets.only(top: 10),
                                       child: RaisedButton(
                                         child: Text('Edit Profile',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 20,
+                                                fontSize: 15,
                                                 fontWeight: FontWeight.bold)),
                                         color: Color(0xff79C3FF),
                                         elevation: 15,
                                         shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
-                                                Radius.circular(10.0))),
+                                                Radius.circular(20.0))),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
                                               builder: (context) =>
@@ -382,35 +327,44 @@ class _UserAccount extends State<UserAccount> {
                                       ),
                                     )),
                                 Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 10, left: 7, right: 7, bottom: 2),
+                                    padding: EdgeInsets.only(
+                                        top: h * 0.01,
+                                        left: w * 0.01,
+                                        right: w * 0.01,
+                                        bottom: h * 0.01),
                                     child: Container(
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          100,
+                                      width: MediaQuery.of(context)
+                                              .size
+                                              .aspectRatio *
+                                          250,
+                                      margin: EdgeInsets.only(top: h * .01),
                                       child: Container(
-                                        margin: EdgeInsets.only(
-                                            left: 50, right: 50),
-                                        padding: EdgeInsets.only(
-                                            left: 50, right: 50),
                                         child: Row(
                                           children: [
                                             IconButton(
-                                              iconSize: 70,
+                                              iconSize: w / 9,
                                               icon: Image.asset(
                                                   'images/logout.png'),
                                               onPressed: () {
-                                                Navigator.of(context)
-                                                    .push(_createlogout());
+                                                Route route = MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        LogIn());
+                                                Navigator.push(context, route);
                                               },
                                             ),
-                                            Expanded(
-                                              child: Container(),
-                                            ),
                                             IconButton(
-                                              iconSize: 70,
+                                              iconSize: w / 9,
                                               icon: Image.asset(
                                                   'images/poweroff.png'),
                                               onPressed: () {
-                                                Navigator.of(context)
-                                                    .push(_createlogout());
+                                                Route route = MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        LogIn());
+                                                Navigator.push(context, route);
                                               },
                                             ),
                                           ],
@@ -419,39 +373,17 @@ class _UserAccount extends State<UserAccount> {
                                     )),
                               ],
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                  color: Color(0xffffffff),
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                  )
+                ])
+              ],
             )
           ],
         ),
       ),
     );
   }
-}
-
-Route _createchange() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const changephoto(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
-}
-
-Route _createlogout() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const LogIn(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
 }

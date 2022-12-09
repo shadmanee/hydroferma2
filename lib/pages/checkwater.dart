@@ -105,7 +105,10 @@ class _WaterState extends State<Water> {
                                   fontSize: s * 33, color: Colors.grey[500]),
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(_createRoute());
+                              Route route = MaterialPageRoute(
+                                  builder: (context) => Nutrient());
+                              Navigator.push(context, route);
+                              // Navigator.of(context).push(_createRoute());
                             },
                           ))
                     ],
@@ -223,15 +226,6 @@ class _WaterState extends State<Water> {
   }
 }
 
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Nutrient(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
-}
-
 class Nutrient extends StatefulWidget {
   const Nutrient({Key? key}) : super(key: key);
 
@@ -317,7 +311,7 @@ class _NutrientState extends State<Nutrient> {
                           ),
                         ),
                         Container(
-                            width: w / 3,
+                            width: w / 2.8,
                             padding: EdgeInsets.all(w / 30),
                             child: FlatButton(
                               shape: Border(
@@ -326,7 +320,7 @@ class _NutrientState extends State<Nutrient> {
                               ),
                               child: Text(
                                 'Nutrient',
-                                style: TextStyle(fontSize: s * 33),
+                                style: TextStyle(fontSize: s * 31.5),
                               ),
                               onPressed: () {
                                 Navigator.of(context).pop();
@@ -335,6 +329,21 @@ class _NutrientState extends State<Nutrient> {
                       ],
                     ),
                   ])),
+                  Row(
+                    children: [
+                      Container(
+                          width: w / 3.5,
+                          padding:
+                              EdgeInsets.only(left: w / 14, bottom: h / 40),
+                          child: Text(
+                            'Overview',
+                            style: TextStyle(
+                                fontSize: s * 28,
+                                color: Colors.grey[400],
+                                fontWeight: FontWeight.w600),
+                          ))
+                    ],
+                  ),
                   Column(
                     children: [
                       Row(
@@ -362,6 +371,60 @@ class _NutrientState extends State<Nutrient> {
                           ),
                           Expanded(child: Container()),
                         ],
+                      ),
+                      SizedBox(
+                        height: h / 30,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(child: Container()),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Color(0xffE6F3FE),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x26000000),
+                                    offset: const Offset(
+                                      5.0,
+                                      5.0,
+                                    ),
+                                    blurRadius: 10.0,
+                                    spreadRadius: 2.0,
+                                  ), //BoxShadow
+                                ]),
+                            // margin: EdgeInsets.only(right: w * 0.02),
+                            height: h / 4,
+                            width: w - (2 * w / 20),
+                            // child: ,
+                          ),
+                          Expanded(child: Container()),
+                        ],
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(h / 30),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(),
+                            ),
+                            Container(
+                              child: TextButton(
+                                child: Text(
+                                  '+ Add More',
+                                  style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                onPressed: () {
+                                  Route route = MaterialPageRoute(
+                                      builder: (context) => Crops());
+                                  Navigator.push(context, route);
+                                },
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   )

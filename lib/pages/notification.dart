@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
+import 'package:hydroferma2/pages/sidebar.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
+
+var h, w, s;
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -15,254 +18,189 @@ class _Notifications extends State<Notifications> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    h = MediaQuery.of(context).size.height;
+    w = MediaQuery.of(context).size.width;
+    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
-      key: _scaffoldKey,
-      drawer: Container(
-        width: 250,
-        child: Drawer(
-          backgroundColor: Color(0xff89B6DC),
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
-            children: [
-              Container(
-                alignment: Alignment(1, -1),
-                child: IconButton(
-                    iconSize: 40,
-                    onPressed: () {
-                      if (_scaffoldKey.currentState!.isDrawerOpen) {
+        key: _scaffoldKey,
+        drawer: SideBarOnly(),
+        body: Container(
+          padding: EdgeInsets.only(top: 20),
+          child: Stack(children: [
+            Column(children: [
+              SizedBox(height: h / 33),
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      iconSize: w / 8,
+                      icon: Image.asset('images/logo-white.png'),
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/noti-blue.png'),
+                      iconSize: w / 8,
+                      onPressed: () {
                         Navigator.pop(context);
-                      }
-                    },
-                    icon: Image.asset('images/logo-blue.png')),
-              ),
-              Container(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Water & Nutrient Supply',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Water());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Power Usage',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Crop Recommendation',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Life Cycle',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => lifecycle1());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Connect System',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Bluetooth());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Data Log',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Preferences',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-      body: Container(
-        padding: EdgeInsets.only(top: 20),
-        child: Stack(
-          children: [
-            Row(
-              children: <Widget>[
-                Container(
-                  child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset('images/logo-white.png'),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                  ),
-                ),
-                SizedBox(width: 160),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/noti-blue.png'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/user.png'),
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(15, 60, 15, 15),
-              child: ListView(
-                children: <Widget>[_notifCard(), _notifCard()],
-              ),
-              decoration: BoxDecoration(
-                  color: Color(0xc977AAD4),
-                  borderRadius: BorderRadius.all(Radius.circular(8.0))),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-Widget _notifCard() {
-  return Container(
-    padding: EdgeInsets.only(left: 10, right: 10),
-    child: Card(
-      color: Color(0xccffffff),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20.0))),
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: [
-          ListTile(
-            title: const Text('Module'),
-          ),
-          Container(
-            color: Colors.white,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 13, left: 16, right: 16, bottom: 10),
-                  child: Text(
-                    'This is an alert. Please attend to your system. Or else.',
-                    style: TextStyle(
-                        color: Colors.black.withOpacity(0.6), fontSize: 17),
-                  ),
-                ),
-                ButtonBar(
-                  alignment: MainAxisAlignment.end,
-                  children: [
-                    FlatButton(
-                      textColor: const Color(0xFF408FD0),
-                      onPressed: () {
-                        // Perform some action
                       },
-                      child: const Text('Activate'),
                     ),
-                    FlatButton(
-                      textColor: const Color(0xFF408FD0),
+                  ),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/user.png'),
+                      iconSize: w / 8,
                       onPressed: () {
-                        // Perform some action
+                        Route route = MaterialPageRoute(
+                            builder: (context) => UserAccount());
+                        Navigator.push(context, route);
                       },
-                      child: const Text('Ignore'),
                     ),
+                  )
+                ],
+              ),
+              Container(
+                // margin: EdgeInsets.fromLTRB(15, 60, 15, 15),
+                margin: EdgeInsets.only(top: h / 40),
+                height: h - (h / 5),
+                width: w - (w / 10),
+                child: ListView(
+                  children: <Widget>[
+                    Card(
+                      color: Color(0xccffffff),
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        children: [
+                          ListTile(
+                              title: Container(
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Water & Nutrient Supply',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontWeight: FontWeight.w800),
+                                ),
+                                Expanded(child: Container()),
+                                Text('56m',
+                                    style: TextStyle(
+                                        color: Colors.grey[400],
+                                        fontWeight: FontWeight.w600))
+                              ],
+                            ),
+                          )),
+                          Container(
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 13, left: 16, right: 16, bottom: 10),
+                                  child: Text(
+                                    'Your system supplied 0.53 mg of MgPH to the nutrient medium.',
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.6),
+                                        fontSize: 17),
+                                  ),
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.end,
+                                  children: [
+                                    FlatButton(
+                                      textColor: const Color(0xFF408FD0),
+                                      onPressed: () {
+                                        // Perform some action
+                                      },
+                                      child: const Text('Okay'),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Card(
+                      color: Color(0xccffffff),
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0))),
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        children: [
+                          ListTile(
+                              title: Container(
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Power Usage',
+                                  style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontWeight: FontWeight.w800),
+                                ),
+                                Expanded(child: Container()),
+                                Text('2h',
+                                    style: TextStyle(
+                                        color: Colors.grey[400],
+                                        fontWeight: FontWeight.w600))
+                              ],
+                            ),
+                          )),
+                          Container(
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 13, left: 16, right: 16, bottom: 10),
+                                  child: Text(
+                                    'Not enough sunlight! Switch to battery backup?',
+                                    style: TextStyle(
+                                        color: Colors.black.withOpacity(0.6),
+                                        fontSize: 17),
+                                  ),
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.end,
+                                  children: [
+                                    FlatButton(
+                                      textColor: const Color(0xFF408FD0),
+                                      onPressed: () {
+                                        // Perform some action
+                                      },
+                                      child: const Text('Switch'),
+                                    ),
+                                    FlatButton(
+                                      textColor: const Color(0xFF408FD0),
+                                      onPressed: () {
+                                        // Perform some action
+                                      },
+                                      child: const Text('Ignore'),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    ),
-  );
+                ),
+                decoration: BoxDecoration(
+                    color: Color(0xc977AAD4),
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
+              )
+            ])
+          ]),
+        ));
+  }
 }

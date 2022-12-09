@@ -181,12 +181,10 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                       IconButton(
                         iconSize: w / 14,
                         onPressed: () {
-                          if (_scaffoldKey.currentState!.isDrawerOpen) {
-                            Navigator.pop(context);
-                            Route route = MaterialPageRoute(
-                                builder: (context) => DashBoard());
-                            Navigator.push(context, route);
-                          }
+                          Navigator.pop(context);
+                          Route route = MaterialPageRoute(
+                              builder: (context) => DashBoard());
+                          Navigator.push(context, route);
                         },
                         icon: Icon(Icons.home),
                         color: Colors.white,

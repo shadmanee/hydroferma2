@@ -247,8 +247,8 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                         iconSize: w / 18,
                         onPressed: () {
                           Navigator.pop(context);
-                          Route route = MaterialPageRoute(
-                              builder: (context) => DashBoard());
+                          Route route =
+                              MaterialPageRoute(builder: (context) => Info());
                           Navigator.push(context, route);
                         },
                         icon: Icon(Icons.bar_chart),

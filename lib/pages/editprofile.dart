@@ -74,6 +74,7 @@ class _EditProfile extends State<EditProfile> {
               ),
               Container(
                 //color: Color(0xffC9F3E9),
+                height: 4 * h / 5,
                 margin: EdgeInsets.only(left: w * 0.03, right: w * 0.03),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),

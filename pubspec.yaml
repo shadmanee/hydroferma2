@@ -39,6 +39,7 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   syncfusion_flutter_gauges: ^18.2.44
   syncfusion_flutter_charts: ^18.4.49
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +95,7 @@ flutter:
     - images/catto.png
     - images/yes.png
     - images/no.png
+    - images/barchart.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

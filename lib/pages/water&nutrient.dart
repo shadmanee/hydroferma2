@@ -527,7 +527,7 @@ class _NutrientState extends State<Nutrient> {
                                             Text(
                                               'Phosphate, Potash',
                                               style: TextStyle(
-                                                  fontSize: 35,
+                                                  fontSize: 30,
                                                   fontWeight: FontWeight.w100,
                                                   color: Colors.grey[600]),
                                             ),
@@ -612,7 +612,7 @@ class _NutrientState extends State<Nutrient> {
                                             Text(
                                               'Phosphate, Potash',
                                               style: TextStyle(
-                                                  fontSize: 35,
+                                                  fontSize: 30,
                                                   fontWeight: FontWeight.w100,
                                                   color: Colors.grey[600]),
                                             ),

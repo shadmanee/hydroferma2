@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
+import 'package:hydroferma2/pages/emptypagetotest.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
@@ -323,7 +324,7 @@ class _UserAccount extends State<UserAccount> {
                                         icon: Image.asset('images/logout.png'),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
-                                              builder: (context) => LogIn());
+                                              builder: (context) => popup());
                                           Navigator.push(context, route);
                                         },
                                       ),
@@ -333,7 +334,7 @@ class _UserAccount extends State<UserAccount> {
                                             Image.asset('images/poweroff.png'),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
-                                              builder: (context) => LogIn());
+                                              builder: (context) => popup1());
                                           Navigator.push(context, route);
                                         },
                                       ),

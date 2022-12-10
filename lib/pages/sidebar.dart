@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/power.dart';
+import 'package:hydroferma2/pages/powersystem.dart';
 import 'package:hydroferma2/pages/settings.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
 
@@ -93,7 +94,7 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                         color: Colors.white)),
                 onPressed: () {
                   Route route =
-                      MaterialPageRoute(builder: (context) => Power());
+                      MaterialPageRoute(builder: (context) => Powersys());
                   Navigator.push(context, route);
                 },
               ),

@@ -10,6 +10,7 @@ import 'package:hydroferma2/pages/loginsignup.dart';
 import 'package:hydroferma2/pages/powersystem.dart';
 import 'package:hydroferma2/pages/signup.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
+import 'package:hydroferma2/pages/waterchart.dart';
 import 'package:path/path.dart' as Path;
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
@@ -22,7 +23,7 @@ import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.da
 
 // import 'package:google_fonts/google_fonts.dart';
 void main() {
-  runApp(MaterialApp(title: 'Hydrofermah', home: Powersys()));
+  runApp(MaterialApp(title: 'Hydrofermah', home: EditProfile()));
 }
 
 class Land extends StatefulWidget {

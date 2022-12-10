@@ -1,5 +1,3 @@
-// import 'dart:html';
-// import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/changephoto.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
@@ -199,38 +197,41 @@ class _UserAccount extends State<UserAccount> {
                                         icon: Image.asset('images/padlock.png'),
                                         onPressed: () {},
                                       ),
-                                      Text('***',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black)),
-                                      // Container(
-                                      //   child: TextField(
-                                      //     obscureText: passenable,
-                                      //     decoration: InputDecoration(
-                                      //         border: InputBorder.none,
-                                      //         suffix: IconButton(
-                                      //             onPressed: () {
-                                      //               setState(() {
-                                      //                 //refresh UI
-                                      //                 if (passenable) {
-                                      //                   //if passenable == true, make it false
-                                      //                   passenable =
-                                      //                       false;
-                                      //                 } else {
-                                      //                   passenable =
-                                      //                       true; //if passenable == false, make it true
-                                      //                 }
-                                      //               });
-                                      //             },
-                                      //             icon: Icon(passenable ==
-                                      //                     true
-                                      //                 ? Icons
-                                      //                     .remove_red_eye
-                                      //                 : Icons.password))),
-                                      //     controller: myinput,
-                                      //   ),
-                                      // )
+                                      // Text('***',
+                                      //     style: TextStyle(
+                                      //         fontSize: 16,
+                                      //         fontWeight: FontWeight.bold,
+                                      //         color: Colors.black)),
+                                      Expanded(
+                                          child: TextField(
+                                        obscureText: passenable,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            suffix: IconButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    //refresh UI
+                                                    if (passenable) {
+                                                      //if passenable == true, make it false
+                                                      passenable = false;
+                                                    } else {
+                                                      passenable =
+                                                          true; //if passenable == false, make it true
+                                                    }
+                                                  });
+                                                },
+                                                icon: Icon(
+                                                  passenable == true
+                                                      ? Icons.visibility_off
+                                                      : Icons.remove_red_eye,
+                                                ))),
+                                        controller: myinput,
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                        readOnly: true,
+                                      )),
                                     ],
                                   ),
                                   onPressed: () {},

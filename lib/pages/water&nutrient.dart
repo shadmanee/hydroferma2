@@ -138,27 +138,105 @@ class _WaterState extends State<Water> {
                       margin: EdgeInsets.only(right: w * 0.02),
                       height: h / 4,
                       width: w / 3,
-                      // child: ,
+                      child: Column(
+                        children: [
+                          Expanded(child: Container()),
+                          Center(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: s),
+                                  child: Text(
+                                    '4.7',
+                                    style: TextStyle(
+                                        fontSize: 50,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.grey[600]),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: s + s),
+                                  child: Text(
+                                    'L/m2/day',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.black45),
+                                  ),
+                                ),
+                                Text(
+                                  'Current Water',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black38),
+                                ),
+                                Text(
+                                  'Consumption',
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black38),
+                                )
+                              ],
+                            ),
+                          ),
+                          Expanded(child: Container())
+                        ],
+                      ),
                     ),
                     Container(
-                        padding: EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: Color(0xffE6F3FE),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color(0x26000000),
-                                offset: const Offset(
-                                  5.0,
-                                  5.0,
-                                ),
-                                blurRadius: 10.0,
-                                spreadRadius: 2.0,
-                              ), //BoxShadow
-                            ]),
-                        margin: EdgeInsets.only(left: w * 0.02),
-                        height: h / 4,
-                        width: w / 3),
+                      padding: EdgeInsets.only(top: 20),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color(0xffE6F3FE),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x26000000),
+                              offset: const Offset(
+                                5.0,
+                                5.0,
+                              ),
+                              blurRadius: 10.0,
+                              spreadRadius: 2.0,
+                            ), //BoxShadow
+                          ]),
+                      margin: EdgeInsets.only(left: w * 0.02),
+                      height: h / 4,
+                      width: w / 3,
+                      child: Column(
+                        children: [
+                          Expanded(child: Container()),
+                          Center(
+                            child: Column(
+                              children: [
+                                Text('3h',
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.grey[600])),
+                                Text('9m',
+                                    style: TextStyle(
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.grey[600])),
+                                Text('Since Last',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.black45)),
+                                Text('Water Change',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w100,
+                                        color: Colors.black45))
+                              ],
+                            ),
+                          ),
+                          Expanded(child: Container())
+                        ],
+                      ),
+                    ),
                     Expanded(child: Container())
                   ]),
                 ),

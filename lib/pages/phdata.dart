@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WaterTable extends StatefulWidget {
-  const WaterTable({Key? key}) : super(key: key);
+class PhTable extends StatefulWidget {
+  const PhTable({Key? key}) : super(key: key);
 
   @override
-  State<WaterTable> createState() => _WaterTableState();
+  State<PhTable> createState() => _PhTableState();
 }
 
-class _WaterTableState extends State<WaterTable> {
+class _PhTableState extends State<PhTable> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -195,9 +195,9 @@ class _WaterTableState extends State<WaterTable> {
                           }),
                       Container(
                         width: MediaQuery.of(context).size.width -
-                            (2 * MediaQuery.of(context).size.width / 30),
+                            (2 * MediaQuery.of(context).size.width / 33),
                         child: Text(
-                          'Multifunctional Water Qu...',
+                          'pH Meter',
                           style: TextStyle(fontSize: 20),
                           softWrap: false,
                           maxLines: 1,

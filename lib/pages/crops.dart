@@ -15,6 +15,18 @@ class Crops extends StatefulWidget {
 }
 
 class _CropsState extends State<Crops> {
+  List<String> crops = [
+    "Tomato",
+    "Green Wave",
+    "Butter Head",
+    "Iceberg Lettuce",
+    "Romaine Lettuce",
+    "Malabar Spinach",
+    "Red Spinach",
+    "Coriander",
+    "Orchid",
+    "Hydrangea"
+  ];
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -22,6 +34,7 @@ class _CropsState extends State<Crops> {
     w = MediaQuery.of(context).size.width;
     s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         key: _scaffoldKey,
         backgroundColor: Colors.white,
         drawer: SideBarOnly(),
@@ -74,15 +87,58 @@ class _CropsState extends State<Crops> {
                   Row(
                     children: [
                       Container(
-                          width: w / 3,
-                          padding: EdgeInsets.all(w / 30),
+                          width: w,
+                          padding: EdgeInsets.all(w / 20),
                           child: Text(
                             'Crop Recommendation',
-                            style: TextStyle(fontSize: s * 31.5),
+                            style: TextStyle(
+                                fontSize: s * 33,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black54),
                           ))
                     ],
                   ),
-                  Row(children: [])
+                  Column(children: [
+                    Row(
+                      children: [
+                        Expanded(child: Container()),
+                        Container(
+                          height: h / 12,
+                          width: w - (2 * w / 33) - (w / 5),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Search',
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: s * 20,
+                        ),
+                        IconButton(
+                            iconSize: s * 60,
+                            onPressed: () {},
+                            icon: Icon(Icons.search_rounded)),
+                        Expanded(child: Container())
+                      ],
+                    ),
+                  ]),
+                  Container(
+                      // padding: EdgeInsets.only(top: s * 50),
+                      width: w - (3 * w / 35),
+                      height: 2 * h / 3,
+                      child: Scrollbar(
+                          isAlwaysShown: true, //always show scrollbar
+                          thickness: 5, //width of scrollbar
+                          radius:
+                              Radius.circular(20), //corner radius of scrollbar
+                          scrollbarOrientation: ScrollbarOrientation
+                              .right, //which side to show scrollbar
+                          child: ListView(
+                            children: crops.map((crop) {
+                              return Card(child: ListTile(title: Text(crop)));
+                            }).toList(),
+                          )))
                 ]))
               ])
             ])));

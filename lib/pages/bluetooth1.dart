@@ -8,6 +8,10 @@ import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/waterdata.dart';
 import 'package:hydroferma2/pages/waterdevices.dart';
 import 'lifecycle.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:hydroferma2/pages/sidebar.dart';
+
+var h, w, s;
 
 class Bluetooth extends StatefulWidget {
   const Bluetooth({Key? key}) : super(key: key);
@@ -20,234 +24,106 @@ class _bluetooth extends State<Bluetooth> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    h = MediaQuery.of(context).size.height;
+    w = MediaQuery.of(context).size.width;
+    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Container(
-        width: 250,
-        child: Drawer(
-          backgroundColor: Color(0xff89B6DC),
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
-            children: [
-              Container(
-                alignment: Alignment(1, -1),
-                child: IconButton(
-                    iconSize: 40,
-                    onPressed: () {
-                      if (_scaffoldKey.currentState!.isDrawerOpen) {
-                        Navigator.pop(context);
-                      }
-                    },
-                    icon: Image.asset('images/logo-blue.png')),
-              ),
-              Container(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Water & Nutrient Supply',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Water());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Power Usage',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Crop Recommendation',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Life Cycle',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => lifecycle1());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Connect System',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Bluetooth());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Data Log',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Preferences',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: Colors.white,
+      drawer: SideBarOnly(),
       body: Container(
         padding: EdgeInsets.only(top: 20),
         child: Stack(
           children: [
-            Row(
-              children: <Widget>[
-                Container(
-                  child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset('images/logo-white.png'),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                  ),
-                ),
-                SizedBox(width: 160),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/noti.png'),
-                    onPressed: () {
-                      // Route route =
-                      //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                      // Navigator.push(context, route);
-                    },
-                  ),
-                ),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/user.png'),
-                    onPressed: () {
-                      Navigator.of(context).push(_createuser());
-                    },
-                  ),
-                )
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.only(top: 100),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    child: Center(
+            Column(
+              children: [
+                SizedBox(height: h / 33),
+                Row(
+                  children: <Widget>[
+                    Container(
                       child: IconButton(
-                        iconSize: 300,
-                        icon: Image.asset('images/bluetooth1.png'),
+                        iconSize: w / 8,
+                        icon: Image.asset('images/logo-white.png'),
                         onPressed: () {
-                          Navigator.of(context).push(_createRoute());
+                          _scaffoldKey.currentState!.openDrawer();
                         },
                       ),
                     ),
-                  ),
-                  Container(
-                    child: Center(
-                      child: Text(
-                        "Tap to connect the system",
-                        style: TextStyle(fontSize: 40),
-                        textAlign: TextAlign.center,
+                    Expanded(child: Container()),
+                    Container(
+                      child: IconButton(
+                        icon: Image.asset('images/noti.png'),
+                        iconSize: w / 8,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => Notifications());
+                          Navigator.push(context, route);
+                        },
                       ),
                     ),
-                  )
-                ],
-              ),
-            ),
+                    Container(
+                      child: IconButton(
+                        icon: Image.asset('images/user.png'),
+                        iconSize: w / 10,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => UserAccount());
+                          Navigator.push(context, route);
+                        },
+                      ),
+                    )
+                  ],
+                ),
+                //main kaj
+                Column(children: <Widget>[
+                  Container(
+                    //color: Color(0xffC9F3E9),
+                    width: w - (3 * w / 40),
+                    height: h - (h / 4),
+
+                    child: Container(
+                      height: MediaQuery.of(context).size.aspectRatio * 350,
+                      width: MediaQuery.of(context).size.aspectRatio * 750,
+                      color: Color(0xffffffff),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(
+                                bottom: h * 0.01,
+                                top: h * 0.02,
+                                left: w * 0.02,
+                                right: w * 0.02),
+                            child: IconButton(
+                              iconSize: h / 2,
+                              icon: Image.asset('images/bluetooth1.png'),
+                              onPressed: () {
+                                Route route = MaterialPageRoute(
+                                    builder: (context) => bluetoothconnect());
+                                Navigator.push(context, route);
+                              },
+                            ),
+                          ),
+                          Container(
+                            child: Center(
+                              child: Text(
+                                "Tap to connect your system",
+                                style: TextStyle(fontSize: 35),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ])
+              ],
+            )
           ],
         ),
       ),
     );
   }
-}
-
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const bluetoothconnect(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
 }
 
 class bluetoothconnect extends StatefulWidget {
@@ -261,237 +137,104 @@ class _bluetoothconnectState extends State<bluetoothconnect> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    h = MediaQuery.of(context).size.height;
+    w = MediaQuery.of(context).size.width;
+    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
-        key: _scaffoldKey,
-        drawer: Container(
-          width: 250,
-          child: Drawer(
-            backgroundColor: Color(0xff89B6DC),
-            child: ListView(
-              padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
+      key: _scaffoldKey,
+      backgroundColor: Colors.white,
+      drawer: SideBarOnly(),
+      body: Container(
+        padding: EdgeInsets.only(top: 20),
+        child: Stack(
+          children: [
+            Column(
               children: [
-                Container(
-                  alignment: Alignment(1, -1),
-                  child: IconButton(
-                      iconSize: 40,
-                      onPressed: () {
-                        if (_scaffoldKey.currentState!.isDrawerOpen) {
-                          Navigator.pop(context);
-                        }
-                      },
-                      icon: Image.asset('images/logo-blue.png')),
-                ),
-                Container(
-                  height: 20,
-                ),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Water & Nutrient Supply',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {
-                      Route route =
-                          MaterialPageRoute(builder: (context) => Water());
-                      Navigator.push(context, route);
-                    },
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Power Usage',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {},
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Crop Recommendation',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {},
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Life Cycle',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {
-                      Route route =
-                          MaterialPageRoute(builder: (context) => lifecycle1());
-                      Navigator.push(context, route);
-                    },
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Connect System',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {
-                      Route route =
-                          MaterialPageRoute(builder: (context) => Bluetooth());
-                      Navigator.push(context, route);
-                    },
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Data Log',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {},
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 50,
-                  child: RaisedButton(
-                    color: Color(0xff6CA3D1),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                    elevation: 5,
-                    child: Text('Preferences',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        body: Container(
-            padding: EdgeInsets.only(top: 20),
-            child: Stack(children: [
-              Row(
-                children: <Widget>[
-                  Container(
-                    child: IconButton(
-                      iconSize: 40,
-                      icon: Image.asset('images/logo-white.png'),
-                      onPressed: () {
-                        _scaffoldKey.currentState!.openDrawer();
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 160),
-                  Container(
-                    child: IconButton(
-                      icon: Image.asset('images/noti.png'),
-                      onPressed: () {
-                        // Route route =
-                        //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                        // Navigator.push(context, route);
-                      },
-                    ),
-                  ),
-                  Container(
-                    child: IconButton(
-                      icon: Image.asset('images/user.png'),
-                      onPressed: () {
-                        Navigator.of(context).push(_createuser());
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 100),
-                child: Column(
+                SizedBox(height: h / 33),
+                Row(
                   children: <Widget>[
                     Container(
-                      child: Center(
-                        child: IconButton(
-                          iconSize: 300,
-                          icon: Image.asset('images/bluetooth2.png'),
-                          onPressed: () {
-                            Navigator.of(context).push(_createback());
-                          },
-                        ),
+                      child: IconButton(
+                        iconSize: w / 8,
+                        icon: Image.asset('images/logo-white.png'),
+                        onPressed: () {
+                          _scaffoldKey.currentState!.openDrawer();
+                        },
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    Container(
+                      child: IconButton(
+                        icon: Image.asset('images/noti.png'),
+                        iconSize: w / 8,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => Notifications());
+                          Navigator.push(context, route);
+                        },
                       ),
                     ),
                     Container(
-                      child: Center(
-                        child: Text(
-                          "Connected!",
-                          style: TextStyle(fontSize: 40),
-                          textAlign: TextAlign.center,
-                        ),
+                      child: IconButton(
+                        icon: Image.asset('images/user.png'),
+                        iconSize: w / 10,
+                        onPressed: () {
+                          Route route = MaterialPageRoute(
+                              builder: (context) => UserAccount());
+                          Navigator.push(context, route);
+                        },
                       ),
-                    ),
+                    )
                   ],
                 ),
-              )
-            ])));
+                //main kaj
+                Column(children: <Widget>[
+                  Container(
+                    //color: Color(0xffC9F3E9),
+                    width: w - (3 * w / 40),
+                    height: h - (h / 4),
+
+                    child: Container(
+                      height: MediaQuery.of(context).size.aspectRatio * 350,
+                      width: MediaQuery.of(context).size.aspectRatio * 750,
+                      color: Color(0xffffffff),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(
+                                bottom: h * 0.01,
+                                top: h * 0.02,
+                                left: w * 0.02,
+                                right: w * 0.02),
+                            child: IconButton(
+                              iconSize: h / 2,
+                              icon: Image.asset('images/bluetooth2.png'),
+                              onPressed: () {
+                                Route route = MaterialPageRoute(
+                                    builder: (context) => Bluetooth());
+                                Navigator.push(context, route);
+                              },
+                            ),
+                          ),
+                          Container(
+                            child: Center(
+                              child: Text(
+                                "Connected!",
+                                style: TextStyle(fontSize: 35),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ])
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
-}
-
-Route _createback() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Bluetooth(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
-}
-
-Route _createuser() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const UserAccount(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
 }

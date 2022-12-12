@@ -202,16 +202,14 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                       IconButton(
                         iconSize: w / 18,
                         onPressed: () {
-                          if (_scaffoldKey.currentState!.isDrawerOpen) {
-                            Navigator.pop(context);
-                            Route route = MaterialPageRoute(
-                                builder: (context) => Settings());
-                            Navigator.push(context, route);
-                          }
+                          Navigator.pop(context);
+                          Route route = MaterialPageRoute(
+                              builder: (context) => Settingss());
+                          Navigator.push(context, route);
                         },
                         icon: Icon(Icons.settings),
                         color: Colors.white,
-                      ),
+                      )
                     ],
                   ),
                   Row(

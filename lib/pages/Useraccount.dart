@@ -5,6 +5,7 @@ import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/editprofile.dart';
+import 'package:hydroferma2/pages/loginsignup.dart';
 import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -324,7 +325,8 @@ class _UserAccount extends State<UserAccount> {
                                         icon: Image.asset('images/logout.png'),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
-                                              builder: (context) => popup());
+                                              builder: (context) =>
+                                                  LoginSignup());
                                           Navigator.push(context, route);
                                         },
                                       ),
@@ -334,7 +336,7 @@ class _UserAccount extends State<UserAccount> {
                                             Image.asset('images/poweroff.png'),
                                         onPressed: () {
                                           Route route = MaterialPageRoute(
-                                              builder: (context) => popup1());
+                                              builder: (context) => LogIn());
                                           Navigator.push(context, route);
                                         },
                                       ),

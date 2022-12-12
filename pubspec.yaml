@@ -40,6 +40,7 @@ dependencies:
   syncfusion_flutter_gauges: ^18.2.44
   syncfusion_flutter_charts: ^18.4.49
   get: ^4.6.5
+  side_navigation: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -96,6 +97,11 @@ flutter:
     - images/yes.png
     - images/no.png
     - images/barchart.png
+    - images/amader-user.jpg
+    - images/energy.png
+    - images/lifecycle.png
+    - images/water-tap.png
+    - images/agriculture.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

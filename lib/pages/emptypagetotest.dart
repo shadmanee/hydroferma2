@@ -1,88 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:side_navigation/side_navigation.dart';
 
-class popup extends StatelessWidget {
-  const popup({Key? key}) : super(key: key);
+class MainView extends StatefulWidget {
+  const MainView({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-        title: "popup",
-        home: Scaffold(
-          backgroundColor: Color(0xff77AAD4),
-          body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Get.defaultDialog(
-                    titlePadding:
-                        const EdgeInsets.only(top: 35.0, bottom: 17.0),
-                    title: "Log Out",
-                    titleStyle: const TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.bold),
-                    middleText: "Are you sure you want to log out?",
-                    middleTextStyle: const TextStyle(fontSize: 15.0),
-                    backgroundColor: Colors.white,
-                    radius: 10.0,
-                    contentPadding: const EdgeInsets.only(bottom: 17.0),
-                    textCancel: "YES",
-                    cancelTextColor: Colors.green,
-                    textConfirm: "NO",
-                    confirmTextColor: Colors.red,
-                    onCancel: () {},
-                    onConfirm: () {},
-                    buttonColor: Colors.white,
-                  );
-                },
-                child: const Text("mama jitsiiii logout"),
-              ),
-            ],
-          )),
-        ));
-  }
+  _MainViewState createState() => _MainViewState();
 }
 
-class popup1 extends StatelessWidget {
-  const popup1({Key? key}) : super(key: key);
+class _MainViewState extends State<MainView> {
+  /// Views to display
+  List<Widget> views = const [
+    Center(
+      child: Text('Dashboard'),
+    ),
+    Center(
+      child: Text('Account'),
+    ),
+    Center(
+      child: Text('Settings'),
+    ),
+  ];
+
+  /// The currently selected index of the bar
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        title: "popup",
-        home: Scaffold(
-          backgroundColor: Color(0xff77AAD4),
-          body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Get.defaultDialog(
-                    titlePadding:
-                        const EdgeInsets.only(top: 35.0, bottom: 17.0),
-                    title: "Disconnect System",
-                    titleStyle: const TextStyle(
-                        fontSize: 20.0, fontWeight: FontWeight.bold),
-                    middleText: "Are you sure you want to disconnect?",
-                    middleTextStyle: const TextStyle(fontSize: 15.0),
-                    backgroundColor: Colors.white,
-                    radius: 10.0,
-                    contentPadding: const EdgeInsets.only(bottom: 17.0),
-                    textCancel: "YES",
-                    cancelTextColor: Colors.green,
-                    textConfirm: "NO",
-                    confirmTextColor: Colors.red,
-                    onCancel: () {},
-                    onConfirm: () {},
-                    buttonColor: Colors.white,
-                  );
-                },
-                child: const Text("kirre mama disconnect"),
+    return Scaffold(
+      /// You can use an AppBar if you want to
+      //appBar: AppBar(
+      //  title: const Text('App'),
+      //),
+
+      // The row is needed to display the current view
+      body: Row(
+        children: [
+          /// Pretty similar to the BottomNavigationBar!
+          SideNavigationBar(
+            selectedIndex: selectedIndex,
+            items: const [
+              SideNavigationBarItem(
+                icon: Icons.water,
+                label: 'Water & Nutrient Supply',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.power_rounded,
+                label: 'Power Usage',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.set_meal,
+                label: 'Crop Recommendation',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.set_meal,
+                label: 'Crop Recommendation',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.set_meal,
+                label: 'Crop Recommendation',
               ),
             ],
-          )),
-        ));
+            onTap: (index) {
+              setState(() {
+                selectedIndex = index;
+              });
+            },
+          ),
+
+          /// Make it take the rest of the available width
+          Expanded(
+            child: views.elementAt(selectedIndex),
+          )
+        ],
+      ),
+    );
   }
 }

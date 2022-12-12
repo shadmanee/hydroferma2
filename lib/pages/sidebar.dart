@@ -42,14 +42,14 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                     fit: BoxFit.cover,
                     colorFilter: new ColorFilter.mode(
                         Colors.black.withOpacity(0.2), BlendMode.dstATop),
-                    image: AssetImage('images/cat.jpg'),
+                    image: AssetImage('images/amader-user.jpg'),
                   ),
                 ),
                 accountName: Text('Shadmanee Tasneem'),
                 accountEmail: Text('shadmanee@gmail.com'),
                 currentAccountPicture: Container(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('images/cat.jpg'),
+                    backgroundImage: AssetImage('images/amader-user.jpg'),
                     radius: w / 20,
                   ),
                 ),
@@ -214,28 +214,6 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                       ),
                     ],
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: [
-                  //     Text(
-                  //       'About',
-                  //       style: TextStyle(color: Colors.white, fontSize: 14),
-                  //     ),
-                  //     IconButton(
-                  //       iconSize: w / 18,
-                  //       onPressed: () {
-                  //         if (_scaffoldKey.currentState!.isDrawerOpen) {
-                  //           Navigator.pop(context);
-                  //           Route route =
-                  //               MaterialPageRoute(builder: (context) => Info());
-                  //           Navigator.push(context, route);
-                  //         }
-                  //       },
-                  //       icon: Icon(Icons.info_outline),
-                  //       color: Colors.white,
-                  //     )
-                  //   ],
-                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

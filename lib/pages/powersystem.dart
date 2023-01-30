@@ -95,7 +95,7 @@ class _Powersys extends State<Powersys> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                   // color: Color(0xff95D8EB),
-                                  color: Color(0xff8FDBBB),
+                                  color: Color(0xffB1F0D8),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Color(0x26000000),
@@ -108,7 +108,7 @@ class _Powersys extends State<Powersys> {
                                     ), //BoxShadow
                                   ]),
                               margin: EdgeInsets.only(
-                                  left: w * 0.01, bottom: w * 0.02),
+                                  left: w * 0.01, bottom: h / 20),
                               height: (h / 3.2) + 6,
                               width: w * 1.2,
                               child: Column(
@@ -133,15 +133,44 @@ class _Powersys extends State<Powersys> {
                             ),
                           ),
                           Container(
-                              //ekhane add kor sakiiiiiii
-                              // child: Center(
-                              //   child: Text(
-                              //     "Tap to connect your system",
-                              //     style: TextStyle(fontSize: 35),
-                              //     textAlign: TextAlign.center,
-                              //   ),
-                              // ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: Color(0xffB1F0D8),
+                                  // color: Color(0xff8FDBBB),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x26000000),
+                                      offset: const Offset(
+                                        5.0,
+                                        5.0,
+                                      ),
+                                      blurRadius: 10.0,
+                                      spreadRadius: 3.0,
+                                    ), //BoxShadow
+                                  ]),
+                              margin: EdgeInsets.only(
+                                  left: w * 0.01, bottom: w * 0.02),
+                              height: (h / 3.2) + 6,
+                              width: w * 1.2,
+                              child: Column(
+                                children: [
+                                  Expanded(child: Container()),
+                                  Center(
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            height: ((h / 3.2) + 6) * 2.8 / 3,
+                                            child: Image.asset(
+                                                'images/barchart.png')),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(child: Container())
+                                ],
                               ),
+                            ),
+                          )
                         ],
                       ),
                     ),

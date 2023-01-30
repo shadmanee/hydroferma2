@@ -8,6 +8,7 @@ import 'package:hydroferma2/pages/devinfo.dart';
 import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/notification.dart';
 import 'package:hydroferma2/pages/power.dart';
+import 'package:hydroferma2/pages/powersystem.dart';
 import 'package:hydroferma2/pages/settings.dart';
 import 'package:hydroferma2/pages/sidebar.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
@@ -173,9 +174,73 @@ class _DashBoardState extends State<DashBoard> {
                     Center(
                         child: Container(
                             child: Container(
-                      margin: EdgeInsets.only(top: w * 0.1),
                       child: Column(
                         children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.only(bottom: s * 30),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      left: s * 20, right: s * 20),
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Route route = MaterialPageRoute(
+                                            builder: (context) => Water());
+                                        Navigator.push(context, route);
+                                      },
+                                      icon:
+                                          Image.asset('images/water-tap.png')),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      left: s * 20, right: s * 20),
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Route route = MaterialPageRoute(
+                                            builder: (context) => Powersys());
+                                        Navigator.push(context, route);
+                                      },
+                                      icon: Image.asset('images/energy.png')),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      left: s * 20, right: s * 20),
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Route route = MaterialPageRoute(
+                                            builder: (context) => Crops());
+                                        Navigator.push(context, route);
+                                      },
+                                      icon: Image.asset(
+                                          'images/agriculture.png')),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      left: s * 20, right: s * 20),
+                                  child: IconButton(
+                                      onPressed: () {
+                                        Route route = MaterialPageRoute(
+                                            builder: (context) => lifecycle1());
+                                        Navigator.push(context, route);
+                                      },
+                                      icon:
+                                          Image.asset('images/lifecycle.png')),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(bottom: s * 30),
+                            child: Center(
+                              child: Text(
+                                'Quick Access',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w100),
+                              ),
+                            ),
+                          ),
                           Row(
                             children: <Widget>[
                               Expanded(child: Container()),
@@ -203,7 +268,7 @@ class _DashBoardState extends State<DashBoard> {
                                             ]),
                                         margin: EdgeInsets.only(
                                             right: w * 0.01, bottom: w * 0.02),
-                                        height: h / 3.2,
+                                        height: h / 4,
                                         width: w * 0.42,
                                         child: Column(
                                           children: [
@@ -273,7 +338,7 @@ class _DashBoardState extends State<DashBoard> {
                                           ]),
                                       margin: EdgeInsets.only(
                                           right: w * 0.01, bottom: w * 0.02),
-                                      height: h / 2.3,
+                                      height: h / 2.875,
                                       width: w * 0.42,
                                       child: Column(
                                         children: [
@@ -358,7 +423,7 @@ class _DashBoardState extends State<DashBoard> {
                                           ]),
                                       margin: EdgeInsets.only(
                                           left: w * 0.01, bottom: w * 0.02),
-                                      height: (h / 2.3) - 4,
+                                      height: (h / 2.875) - 4,
                                       width: w * 0.42,
                                       child: Column(
                                         children: [
@@ -411,7 +476,7 @@ class _DashBoardState extends State<DashBoard> {
                                           ]),
                                       margin: EdgeInsets.only(
                                           left: w * 0.01, bottom: w * 0.02),
-                                      height: (h / 3.2) + 4,
+                                      height: (h / 4) + 4,
                                       width: w * 0.42,
                                       child: Column(
                                         children: [

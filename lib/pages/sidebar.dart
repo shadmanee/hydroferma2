@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/power.dart';
+import 'package:hydroferma2/pages/powersystem.dart';
 import 'package:hydroferma2/pages/settings.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
 
@@ -41,14 +42,14 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                     fit: BoxFit.cover,
                     colorFilter: new ColorFilter.mode(
                         Colors.black.withOpacity(0.2), BlendMode.dstATop),
-                    image: AssetImage('images/cat.jpg'),
+                    image: AssetImage('images/amader-user.jpg'),
                   ),
                 ),
                 accountName: Text('Shadmanee Tasneem'),
                 accountEmail: Text('shadmanee@gmail.com'),
                 currentAccountPicture: Container(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('images/cat.jpg'),
+                    backgroundImage: AssetImage('images/amader-user.jpg'),
                     radius: w / 20,
                   ),
                 ),
@@ -93,7 +94,7 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                         color: Colors.white)),
                 onPressed: () {
                   Route route =
-                      MaterialPageRoute(builder: (context) => Power());
+                      MaterialPageRoute(builder: (context) => Powersys());
                   Navigator.push(context, route);
                 },
               ),
@@ -201,40 +202,16 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                       IconButton(
                         iconSize: w / 18,
                         onPressed: () {
-                          if (_scaffoldKey.currentState!.isDrawerOpen) {
-                            Navigator.pop(context);
-                            Route route = MaterialPageRoute(
-                                builder: (context) => Settings());
-                            Navigator.push(context, route);
-                          }
+                          Navigator.pop(context);
+                          Route route = MaterialPageRoute(
+                              builder: (context) => Settingss());
+                          Navigator.push(context, route);
                         },
                         icon: Icon(Icons.settings),
                         color: Colors.white,
-                      ),
+                      )
                     ],
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: [
-                  //     Text(
-                  //       'About',
-                  //       style: TextStyle(color: Colors.white, fontSize: 14),
-                  //     ),
-                  //     IconButton(
-                  //       iconSize: w / 18,
-                  //       onPressed: () {
-                  //         if (_scaffoldKey.currentState!.isDrawerOpen) {
-                  //           Navigator.pop(context);
-                  //           Route route =
-                  //               MaterialPageRoute(builder: (context) => Info());
-                  //           Navigator.push(context, route);
-                  //         }
-                  //       },
-                  //       icon: Icon(Icons.info_outline),
-                  //       color: Colors.white,
-                  //     )
-                  //   ],
-                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -246,8 +223,8 @@ class _SideBarOnlyState extends State<SideBarOnly> {
                         iconSize: w / 18,
                         onPressed: () {
                           Navigator.pop(context);
-                          Route route = MaterialPageRoute(
-                              builder: (context) => DashBoard());
+                          Route route =
+                              MaterialPageRoute(builder: (context) => Info());
                           Navigator.push(context, route);
                         },
                         icon: Icon(Icons.bar_chart),

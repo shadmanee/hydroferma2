@@ -1,5 +1,3 @@
-// import 'dart:html';
-// import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:hydroferma2/pages/Useraccount.dart';
 import 'package:hydroferma2/pages/bluetooth1.dart';
@@ -7,6 +5,9 @@ import 'package:hydroferma2/pages/lifecycle.dart';
 import 'package:hydroferma2/pages/login.dart';
 import 'package:hydroferma2/pages/dashboard.dart';
 import 'package:hydroferma2/pages/water&nutrient.dart';
+import 'package:hydroferma2/pages/notification.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:hydroferma2/pages/sidebar.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -15,345 +16,230 @@ class EditProfile extends StatefulWidget {
   State<EditProfile> createState() => _EditProfile();
 }
 
+var h, w, s;
+
 class _EditProfile extends State<EditProfile> {
   var formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
+    h = MediaQuery.of(context).size.height;
+    w = MediaQuery.of(context).size.width;
+    s = MediaQuery.of(context).size.aspectRatio;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
-      drawer: Container(
-        width: 250,
-        child: Drawer(
-          backgroundColor: Color(0xff89B6DC),
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(8, 20, 8, 8),
-            children: [
-              Container(
-                alignment: Alignment(1, -1),
-                child: IconButton(
-                    iconSize: 40,
-                    onPressed: () {
-                      if (_scaffoldKey.currentState!.isDrawerOpen) {
-                        Navigator.pop(context);
-                      }
-                    },
-                    icon: Image.asset('images/logo-blue.png')),
-              ),
-              Container(
-                height: 20,
-              ),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Water & Nutrient Supply',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Water());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Power Usage',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Crop Recommendation',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Life Cycle',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => lifecycle1());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Connect System',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {
-                    Route route =
-                        MaterialPageRoute(builder: (context) => Bluetooth());
-                    Navigator.push(context, route);
-                  },
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Data Log',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              ),
-              Divider(),
-              Container(
-                height: 50,
-                child: RaisedButton(
-                  color: Color(0xff6CA3D1),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0))),
-                  elevation: 5,
-                  child: Text('Preferences',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
-                  onPressed: () {},
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: Colors.white,
+      drawer: SideBarOnly(),
       body: Container(
-        padding: EdgeInsets.only(top: 20),
-        child: Stack(
-          children: [
-            Row(
-              children: <Widget>[
-                Container(
-                  child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset('images/logo-white.png'),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
+          padding: EdgeInsets.only(top: 10),
+          child: Stack(children: [
+            Column(children: [
+              SizedBox(height: h / 33),
+              Row(
+                children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      iconSize: w / 8,
+                      icon: Image.asset('images/logo-white.png'),
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                    ),
                   ),
-                ),
-                SizedBox(width: 160),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/noti.png'),
-                    onPressed: () {
-                      // Route route =
-                      //     MaterialPageRoute(builder: (context) => *ENTER CLASS_NAME HERE*);
-                      // Navigator.push(context, route);
-                    },
+                  Expanded(child: Container()),
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/noti.png'),
+                      iconSize: w / 8,
+                      onPressed: () {
+                        Route route = MaterialPageRoute(
+                            builder: (context) => Notifications());
+                        Navigator.push(context, route);
+                      },
+                    ),
                   ),
-                ),
-                Container(
-                  child: IconButton(
-                    icon: Image.asset('images/user-blue.png'),
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-            Row(),
-            Row(
-              children: <Widget>[
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset('images/user.png'),
+                      iconSize: w / 10,
+                      onPressed: () {
+                        Route route = MaterialPageRoute(
+                            builder: (context) => UserAccount());
+                        Navigator.push(context, route);
+                      },
+                    ),
+                  )
+                ],
+              ),
+              Container(
                 //color: Color(0xffC9F3E9),
-                Expanded(
-                    child: Container(
-                        //color: Color(0xffC9F3E9),
-                        height: 100,
-                        margin: EdgeInsets.only(top: 80))),
-                Container(
-                  height: 100,
-                  width: 100,
-                  margin: EdgeInsets.only(top: 80),
-                  //color: Color(0xffC9F3E9),
-                  child: Image.asset('images/catto.png'),
+                height: 4 * h / 5,
+                margin: EdgeInsets.only(left: w * 0.03, right: w * 0.03),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  color: Color(0xffC9F3E9),
                 ),
-                Expanded(
-                    child: Container(
-                        //color: Color(0xffC9F3E9),
-                        height: 100,
-                        margin: EdgeInsets.only(top: 80)))
-              ],
-            ),
+                child: Column(children: <Widget>[
+                  Column(children: [
+                    Container(
+                      child: IconButton(
+                        iconSize: w / 5,
+                        icon: Image.asset('images/catto.png'),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                              child: Container(
+                            height: MediaQuery.of(context).size.aspectRatio * 1,
+                            //padding:
+                            //  EdgeInsets.only(bottom: h * 0.01, top: h * 0.01),
+                            //margin:
+                            //  EdgeInsets.only(bottom: h * 0.01, top: h * 0.001)
+                          )),
+                          Container(
+                              height:
+                                  MediaQuery.of(context).size.aspectRatio * 900,
+                              width:
+                                  MediaQuery.of(context).size.aspectRatio * 540,
+                              color: Color(0xff92D8BD),
+                              //BorderRadius.all(Radius.circular(6.0)), color: Color(0xff88E2BF),
+                              margin: EdgeInsets.only(bottom: h * 0.01),
+                              padding: EdgeInsets.only(
+                                  bottom: h * 0.001,
+                                  top: h * 0.001,
+                                  left: w * 0.04,
+                                  right: w * 0.04),
+                              child: Column(
+                                children: <Widget>[
+                                  Form(
+                                    key: formKey,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'Change Username'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText:
+                                                    'Update Email Address'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText:
+                                                    'Update Phone Number'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'New Password'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'Confirm Password'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          child: TextFormField(
+                                            decoration: InputDecoration(
+                                                labelText: 'Location'),
+                                            validator: (value) {
+                                              // if(value.length==0) return ('Email or Phone');
+                                            },
+                                          ),
+                                        ),
+                                        Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .aspectRatio *
+                                              150,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .aspectRatio *
+                                              600,
+                                          margin: EdgeInsets.only(top: 10),
+                                          child: Container(
+                                            child: Row(
+                                              children: [
+                                                IconButton(
+                                                  iconSize: w / 10,
+                                                  icon: Image.asset(
+                                                      'images/no.png'),
+                                                  onPressed: () {
+                                                    Route route =
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                UserAccount());
+                                                    Navigator.push(
+                                                        context, route);
+                                                  },
+                                                ),
+                                                IconButton(
+                                                  iconSize: w / 10,
+                                                  icon: Image.asset(
+                                                      'images/yes.png'),
+                                                  onPressed: () {
+                                                    Route route =
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                UserAccount());
+                                                    Navigator.push(
+                                                        context, route);
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )),
+                          Expanded(
+                              child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.aspectRatio *
+                                          10,
+                                  margin: EdgeInsets.only(
+                                      bottom: h * 0.05, top: h * 0.05)))
+                        ],
+                      ),
+                    ),
+                  ]),
+                ]),
+              )
+            ]),
+
             //form
-            Row(
-              children: <Widget>[
-                Expanded(
-                    child: Container(
-                        height: 500,
-                        padding: EdgeInsets.only(bottom: 10, top: 40),
-                        margin: EdgeInsets.only(bottom: 10, top: 120))),
-                Container(
-                    height: 500,
-                    width: 500,
-                    color: Color(0xff92D8BD),
-                    //BorderRadius.all(Radius.circular(6.0)), color: Color(0xff88E2BF),
-                    margin: EdgeInsets.only(bottom: 45, top: 200),
-                    padding: EdgeInsets.only(
-                        bottom: 10, top: 20, left: 20, right: 20),
-                    child: Column(
-                      children: <Widget>[
-                        Form(
-                          key: formKey,
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Change Username'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Update Email Address'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Update Phone Number'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'New Password'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                child: TextFormField(
-                                  decoration: InputDecoration(
-                                      labelText: 'Confirm Password'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                child: TextFormField(
-                                  decoration:
-                                      InputDecoration(labelText: 'Location'),
-                                  validator: (value) {
-                                    // if(value.length==0) return ('Email or Phone');
-                                  },
-                                ),
-                              ),
-                              Container(
-                                height: 80,
-                                width: 120,
-                                margin: EdgeInsets.only(top: 20),
-                                child: Container(
-                                  child: Row(
-                                    children: [
-                                      IconButton(
-                                        iconSize: 28,
-                                        icon: Image.asset('images/no.png'),
-                                        onPressed: () {
-                                          Navigator.of(context)
-                                              .push(_createlogout());
-                                        },
-                                      ),
-                                      IconButton(
-                                        iconSize: 28,
-                                        icon: Image.asset('images/yes.png'),
-                                        onPressed: () {
-                                          Navigator.of(context)
-                                              .push(_createlogout());
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    )),
-                Expanded(
-                    child: Container(
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 5, top: 5)))
-              ],
-            ),
-          ],
-        ),
-      ),
+          ])),
     );
   }
-}
-
-Route _createlogout() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const UserAccount(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
-    },
-  );
 }

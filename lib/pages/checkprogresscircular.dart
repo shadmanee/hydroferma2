@@ -66,7 +66,7 @@ class _ProgressCircularState2 extends State<ProgressCircular2> {
     return Scaffold(
       body: Center(
         child: SfRadialGauge(
-            backgroundColor: Color(0xff8FDBBB),
+            backgroundColor: Color(0xffB1F0D8),
             axes: <RadialAxis>[
               RadialAxis(
                 annotations: <GaugeAnnotation>[
